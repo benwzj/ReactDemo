@@ -5,7 +5,7 @@ function Sidebar() {
     { label: 'Dropdown', path: '/' },
     { label: 'Accordion', path: '/accordion' },
     { label: 'Buttons', path: '/buttons' },
-    { label: 'Pics', path: '/pics' },
+    { label: 'UnsplashPictures', path: '/pics' },
   ];
 
   const renderedLinks = links.map((link) => {

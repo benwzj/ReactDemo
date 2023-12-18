@@ -1,45 +1,22 @@
-import { GoBell, GoCloudDownload, GoDatabase } from 'react-icons/go';
-import Button from '../components/Button';
+import { useState } from 'react';
+import SearchBar from '../components/SearchBar';
+import ImageList from '../components/ImageList';
+import searchImages from '../api/Unsplash';
 
 function PicsPage() {
-  const handleClick = () => {};
+  const [images, setImages] = useState([]);
+
+  const handleSubmit = async (term) => {
+    const result = await searchImages(term);
+
+    setImages(result);
+  };
 
   return (
     <div>
-      <div>
-        <Button
-          secondary
-          outline
-          rounded
-          className="mb-5"
-          onClick={handleClick}
-        >
-          <GoBell />
-          Click me!!
-        </Button>
-      </div>
-      <div>
-        <Button danger outline onMouseEnter={handleClick}>
-          <GoCloudDownload />
-          Buy Now!
-        </Button>
-      </div>
-      <div>
-        <Button warning onMouseLeave={handleClick}>
-          <GoDatabase />
-          See Deal!
-        </Button>
-      </div>
-      <div>
-        <Button secondary outline>
-          Hide Ads!
-        </Button>
-      </div>
-      <div>
-        <Button primary rounded>
-          Something!
-        </Button>
-      </div>
+      <SearchBar onSubmit={handleSubmit} />
+      <br/>
+      <ImageList images={images} />
     </div>
   );
 }
