@@ -1,13 +1,13 @@
 import './SearchBar.css';
 import { useState } from 'react';
 
-function SearchBar({ onSubmit }) {
+function SearchBar({ goGetIt }) {
   const [term, setTerm] = useState('');
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    onSubmit(term);
+    goGetIt(term);
   };
 
   const handleChange = (event) => {

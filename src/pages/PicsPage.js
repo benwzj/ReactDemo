@@ -14,7 +14,12 @@ function PicsPage() {
 
   return (
     <div>
-      <SearchBar onSubmit={handleSubmit} />
+     {/*       
+      Here is a rule for Implementing Child to Parent Communication:
+      pass a callback function as props to that child and 
+      whenever it needs to update the state of parent, the function will be called. 
+      */}
+      <SearchBar goGetIt={handleSubmit} />
       <br/>
       <ImageList images={images} />
     </div>
