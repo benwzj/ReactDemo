@@ -18,6 +18,7 @@ function PicsPage() {
       Here is a rule for Implementing Child to Parent Communication:
       pass a callback function as props to that child and 
       whenever it needs to update the state of parent, the function will be called. 
+      Here is the example: PicsPage is parent component, and SearchBar is child.
       */}
       <SearchBar goGetIt={handleSubmit} />
       <br/>

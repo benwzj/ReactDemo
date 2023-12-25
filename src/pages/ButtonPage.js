@@ -1,8 +1,25 @@
 import { GoBell, GoCloudDownload, GoDatabase } from 'react-icons/go';
 import Button from '../components/Button';
+import AnimalItem from '../components/AnimalItem';
+import { useState } from 'react';
+import './ButtonPage.css';
+
+function getRandomAnimal() {
+  const animals = ['bird', 'cat', 'cow', 'dog', 'gator', 'horse'];
+  return animals[Math.floor(Math.random() * animals.length)];
+}
 
 function ButtonPage() {
-  const handleClick = () => {};
+  
+  const [animals, setAnimals] = useState ([])
+  console.log(...animals)
+  const handleClick = () => {
+    setAnimals ([...animals, getRandomAnimal()])
+  };
+
+  const renderedAnimals = animals.map((animal, index) => {
+    return <AnimalItem key={index} type={animal} />;
+  });
 
   return (
     <div>
@@ -12,20 +29,19 @@ function ButtonPage() {
           outline
           rounded
           className="mb-5"
-          onClick={handleClick}
         >
           <GoBell />
           Click me!!
         </Button>
       </div>
       <div>
-        <Button danger outline onMouseEnter={handleClick}>
+        <Button danger outline>
           <GoCloudDownload />
           Buy Now!
         </Button>
       </div>
       <div>
-        <Button warning onMouseLeave={handleClick}>
+        <Button warning>
           <GoDatabase />
           See Deal!
         </Button>
@@ -36,11 +52,15 @@ function ButtonPage() {
         </Button>
       </div>
       <div>
-        <Button primary rounded>
-          Something!
+        <Button primary rounded onClick={handleClick}>
+          Add Animial
         </Button>
       </div>
+      <div>
+        <div className="animal-list">{renderedAnimals}</div>
+      </div>
     </div>
+
   );
 }
 
