@@ -1,6 +1,8 @@
 import './SearchBar.css';
 import { useState } from 'react';
 
+// This is the classic Controlled Input example
+
 function SearchBar({ goGetIt }) {
   const [term, setTerm] = useState('');
 

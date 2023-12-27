@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// limitation: 50 API visits per minute
 const searchImages = async (term) => {
   const response = await axios.get('https://api.unsplash.com/search/photos', {
     headers: {

@@ -19,7 +19,6 @@ const svgMap = {
 
 function AnimalItem({ type }) {
   const [clicks, setClicks] = useState(0);
-  console.log(String(type))
   const handleClick = () => {
     setClicks(clicks + 1);
   };

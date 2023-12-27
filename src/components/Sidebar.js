@@ -6,6 +6,7 @@ function Sidebar() {
     { label: 'Accordion', path: '/accordion' },
     { label: 'Buttons', path: '/buttons' },
     { label: 'UnsplashPictures', path: '/pics' },
+    { label: 'BooksManage', path: '/bookmanage' },
   ];
 
   const renderedLinks = links.map((link) => {

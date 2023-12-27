@@ -12,7 +12,6 @@ function getRandomAnimal() {
 function ButtonPage() {
   
   const [animals, setAnimals] = useState ([])
-  console.log(...animals)
   const handleClick = () => {
     setAnimals ([...animals, getRandomAnimal()])
   };

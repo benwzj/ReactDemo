@@ -1,3 +1,8 @@
+# What is this App
+
+ReactDemo is ReactJS exercise app to run through many React Feature, like nevigation, controlled input, using API, handle list, etc.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
