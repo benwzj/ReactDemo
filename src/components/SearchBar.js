@@ -1,4 +1,4 @@
-import './SearchBar.css';
+import '../css/SearchBar.css';
 import { useState } from 'react';
 
 // This is the classic Controlled Input example

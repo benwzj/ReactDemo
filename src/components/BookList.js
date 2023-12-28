@@ -1,14 +1,13 @@
 
 import BookItem from './BookItem';
 
-const tmpList = ['Read your mind', 'Understand this world', 'ten questions'];
+function BookList({books, onDelete}){
 
-function BookList(){
-  const renderList = tmpList.map((ti, index)=>{
-    return <BookItem key={index} t={ti.toUpperCase()} />
+  const renderList = books.map((book)=>{
+    return <BookItem key={book.id} book={book} onDelete={onDelete}/>
   })
   return (
-    <div>
+    <div className="book-list">
       {renderList}
     </div>
   )

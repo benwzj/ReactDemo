@@ -2,7 +2,7 @@ import { GoBell, GoCloudDownload, GoDatabase } from 'react-icons/go';
 import Button from '../components/Button';
 import AnimalItem from '../components/AnimalItem';
 import { useState } from 'react';
-import './ButtonPage.css';
+import '../css/ButtonPage.css';
 
 function getRandomAnimal() {
   const animals = ['bird', 'cat', 'cow', 'dog', 'gator', 'horse'];
