@@ -3,19 +3,24 @@ import BookEdit from './BookEdit';
 
 const BookItem = ({book, onDelete}) =>{
   
-  const [editStatus, setEditStatus] = useState(false)
+  const [editStatus, setEditStatus] = useState(false);
+  const [like, setLike] = useState(book.like);
   const handleDelete = ()=>{
     onDelete (book.id);
   }
   const handleEditClick = ()=>{
-    setEditStatus(true);
+    setEditStatus (true);
+  }
+  const handleFavorite = ()=>{
+    book.like = like + 1;
+    setLike (book.like);
   }
   const handleUpdateEditStatus = ()=>{
-    setEditStatus(false);
+    setEditStatus (false);
   }
   const displayContent = editStatus ? 
-  <BookEdit onSubmit={handleUpdateEditStatus} book={book} /> : 
-  <h3>{book.name}</h3>
+    <BookEdit onSubmit={handleUpdateEditStatus} book={book} /> : 
+    <><h3>{book.name}</h3> <label>Like: {book.like}</label></>
 
   return (
     <div className="book-show">
@@ -27,6 +32,9 @@ const BookItem = ({book, onDelete}) =>{
         </button>
         <button className="delete" onClick={handleDelete}>
           Delete
+        </button>
+        <button className="edit" onClick={handleFavorite}>
+          Like
         </button>
       </div>
     </div>

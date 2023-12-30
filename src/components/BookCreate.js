@@ -12,7 +12,7 @@ const BookCreate = ({create}) =>{
   }
   const handleSubmit = (event) => {
     event.preventDefault();
-    create ({name: bookName, id: getUniqueID()});
+    create ({name: bookName, id: getUniqueID(), like: 0});
     setBookName ('');
   }
   return (
@@ -26,6 +26,5 @@ const BookCreate = ({create}) =>{
     </div>
   )
 }
-
 
 export default BookCreate;
