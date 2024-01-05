@@ -33,7 +33,7 @@ const BookItem = ({book, onDelete}) =>{
         <button className="delete" onClick={handleDelete}>
           Delete
         </button>
-        <button className="edit" onClick={handleFavorite}>
+        <button className="like" onClick={handleFavorite}>
           Like
         </button>
       </div>

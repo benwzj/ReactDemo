@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const BookCreate = ({create}) =>{
-  const [bookName, setBookName] = useState();
+  const [bookName, setBookName] = useState('');
   const getUniqueID = () =>{
     const date = Date.now().toString(32);
     const ran = Math.floor(Math.random()*9999)
