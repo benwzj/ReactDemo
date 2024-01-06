@@ -5,7 +5,8 @@ const BookItem = ({book, onDelete}) =>{
   
   const [editStatus, setEditStatus] = useState(false);
   const [like, setLike] = useState(book.like);
-  const handleDelete = ()=>{
+
+  const handleDelete = () =>{
     onDelete (book.id);
   }
   const handleEditClick = ()=>{

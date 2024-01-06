@@ -6,7 +6,7 @@ const JsonServer = async(data) => {
     case 'post':
       {
         const response = await axios.post('http://localhost:3001/books', {
-          title: data.payload.title
+          name: data.name
         });
         return response.data;
       }
@@ -17,13 +17,13 @@ const JsonServer = async(data) => {
         return response.data;
       }
     case 'delete':
-      await axios.delete(`http://localhost:3001/books/${data.payload.id}`);
+      await axios.delete(`http://localhost:3001/books/${data.id}`);
       break;
 
     case 'put':
       {
-          const response = await axios.put(`http://localhost:3001/books/${data.payload.id}`, {
-          title: data.payload.title,
+          const response = await axios.put(`http://localhost:3001/books/${data.id}`, {
+          title: data.name,
         });
         return response.data;
       }

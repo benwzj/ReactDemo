@@ -1,18 +1,15 @@
 import { useState } from "react";
 
-const BookCreate = ({create}) =>{
+const BookCreate = ({onCreate}) =>{
   const [bookName, setBookName] = useState('');
-  const getUniqueID = () =>{
-    const date = Date.now().toString(32);
-    const ran = Math.floor(Math.random()*9999)
-    return date + ran;
-  }
+
   const handleInputChange = (event) => {
-    setBookName (event.target.value)
+    setBookName (event.target.value);
   }
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    create ({name: bookName, id: getUniqueID(), like: 0});
+    onCreate (bookName);
     setBookName ('');
   }
   return (
