@@ -20,7 +20,7 @@ function SearchBar({ goGetIt }) {
   };
 
   const labelContent = displayedTerm ?
-    'Display Photos for term \"'+displayedTerm +'\"': '' 
+    `Display Photos for term "${displayedTerm}"`: '' 
 
   return (
     <div className="search-bar">

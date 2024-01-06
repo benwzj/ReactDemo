@@ -1,0 +1,6 @@
+{
+  "books": [
+    { "id": 1, "title": "Elise book", "like": 5 }
+  ],
+  "profile": { "name": "typicode" }
+}
