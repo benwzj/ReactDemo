@@ -1,7 +1,7 @@
 import { useState } from "react";
 import BookEdit from './BookEdit';
 
-const BookItem = ({book, onDelete}) =>{
+const BookItem = ({book, onDelete, onEdit}) =>{
   
   const [editStatus, setEditStatus] = useState(false);
   const [like, setLike] = useState(book.like);
@@ -14,13 +14,20 @@ const BookItem = ({book, onDelete}) =>{
   }
   const handleFavorite = ()=>{
     book.like = like + 1;
+    onEdit(book.id, book.name, book.like);
     setLike (book.like);
   }
-  const handleUpdateEditStatus = ()=>{
+
+  const handleEdit = (newName)=>{
+    book.name = newName; // change book name for the specific book here!
+    onEdit(book.id, newName, book.like);
+    setEditStatus (false);
+  }
+  const handleCancel = () =>{
     setEditStatus (false);
   }
   const displayContent = editStatus ? 
-    <BookEdit onSubmit={handleUpdateEditStatus} book={book} /> : 
+    <BookEdit onEdit={handleEdit} onCancel={handleCancel} book={book} /> : 
     <><h3>{book.name}</h3> <label>Like: {book.like}</label></>
 
   return (
