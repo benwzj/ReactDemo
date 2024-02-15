@@ -29,7 +29,7 @@ function SearchBar({ goGetIt, term }) {
       <form onSubmit={handleFormSubmit}>
         <label>Enter Search Term</label>
         <input className="input" value={newTerm} onChange={handleChange} />
-        <button>Search</button>
+        <button disabled={newTerm===''}>Search</button>
       </form>
       <h3>{labelContent}</h3>
     </div>

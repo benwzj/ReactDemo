@@ -2,27 +2,54 @@
   "books": [
     {
       "name": "thisis a like one",
-      "like": 18,
+      "like": 21,
       "id": 8
     },
     {
       "name": "Levin",
-      "like": 3,
+      "like": 5,
       "id": 11
     },
     {
       "name": "Elise",
-      "like": 2,
+      "like": 7,
       "id": 12
     },
     {
-      "name": "Harry Potter",
+      "name": "About React",
+      "like": 4,
       "id": 13
     }
   ],
   "picture-search": {
-    "term": "elise"
+    "term": "lightning"
   },
+  "todos": [
+    {
+      "id": 100,
+      "text": "lightning"
+    },
+    {
+      "text": "100 push up",
+      "completed": false,
+      "id": 101
+    },
+    {
+      "text": "100 squat",
+      "completed": true,
+      "id": 102
+    },
+    {
+      "text": "444",
+      "completed": false,
+      "id": 103
+    },
+    {
+      "text": "new todo ",
+      "completed": false,
+      "id": 104
+    }
+  ],
   "profile": {
     "name": "typicode"
   }

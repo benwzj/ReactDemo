@@ -5,6 +5,7 @@ import DropdownPage from './pages/DropdownPage';
 import ButtonPage from './pages/ButtonPage';
 import PicsPage from './pages/PicsPage';
 import BooksManagePage from './pages/BooksManagePage';
+import TodosPage from './pages/TodosPage';
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
         </Route>
         <Route path="/bookmanage">
           <BooksManagePage />
+        </Route>
+        <Route path="/todos">
+          <TodosPage />
         </Route>
       </div>
     </div>

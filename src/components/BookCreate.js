@@ -18,7 +18,7 @@ const BookCreate = ({onCreate}) =>{
       <form onSubmit={handleSubmit}>
         <label>Title</label>
         <input className="input" value={bookName} onChange={handleInputChange}/>
-        <button className="button"> Create </button>
+        <button className="button" disabled={bookName===''}> Create </button>
       </form>
     </div>
   )

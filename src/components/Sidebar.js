@@ -7,6 +7,7 @@ function Sidebar() {
     { label: 'Buttons', path: '/buttons' },
     { label: 'UnsplashPictures', path: '/pics' },
     { label: 'BooksManage', path: '/bookmanage' },
+    { label: 'Todos', path: '/todos' },
   ];
 
   const renderedLinks = links.map((link) => {

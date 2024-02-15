@@ -12,7 +12,7 @@ const BooksManagePage = () => {
   };
   
   const fetchBooks = async()=>{
-    const data = {type: 'get-book'};
+    const data = {type: 'get-books'};
     const books = await JsonServer (data);
     console.log(books);
     setBooks (books);

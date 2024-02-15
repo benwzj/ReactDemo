@@ -11,7 +11,7 @@ const JsonServer = async(data) => {
         return response.data;
       }
 
-    case 'get-book':
+    case 'get-books':
       {
         const response = await axios.get('http://localhost:3001/books');
         return response.data;
@@ -38,6 +38,30 @@ const JsonServer = async(data) => {
         const response = await axios.get('http://localhost:3001/picture-search');
         return response.data;
       }
+
+    case 'create-todo':
+      {
+        const response = await axios.post('http://localhost:3001/todos', {
+          text:data.text, completed: data.completed
+        });
+        return response.data;
+      }
+    case 'get-todos':
+      {
+        const response = await axios.get('http://localhost:3001/todos');
+        return response.data;
+      }
+    case 'edit-todo':
+      {
+        const response = await axios.put(`http://localhost:3001/todos/${data.id}`, {
+          text: data.text, completed: data.completed
+        });
+        return response.data;
+      }
+    case 'delete-todo':
+      await axios.delete(`http://localhost:3001/todos/${data.id}`);
+      break; 
+      
     default:
       return Error;
   }
