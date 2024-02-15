@@ -22,11 +22,6 @@ const TodosPage = () => {
     fetchTodos();
   }, []);
 
-  const displayList = visibleTodos.map((todo)=>{
-    return (<li key={todo.id}>{todo.completed? <s>{todo.text}</s>: todo.text}</li>)
-  })
-  const footer = <footer>{`There are ${activeTodoCount} todos left!`}</footer>
-
   const handleAddTodo = async(newTodoText) =>{
     const todo = await JsonServer ({
       type: 'create-todo', 
@@ -35,6 +30,21 @@ const TodosPage = () => {
     });
     setTodos([...todos, todo]); 
   }
+  const handleToggle = async(todo, completed) =>{
+    await JsonServer({
+      type: 'edit-todo',
+      ...todo,
+      completed
+    });
+    const newTodos = todos.map((t)=>t.id===todo.id? {...t,completed}: t);
+    setTodos (newTodos);
+  }
+  const displayList = visibleTodos.map((todo)=>{
+    //return <li key={todo.id}>{todo.completed? <s>{todo.text}</s>: todo.text}</li>;
+    return <TodoItem todo={todo} onToggle={handleToggle} />
+  })
+  const footer = `There are ${activeTodoCount} todos left!`;
+
   return (
     <>
       <label>
@@ -50,7 +60,7 @@ const TodosPage = () => {
         {displayList}
       </ul>
       <br/>
-      {footer}
+      <footer>{footer}</footer>
     </>
   );
 }
@@ -70,5 +80,18 @@ const NewTodo = ({onAdd}) => {
     </>
   )
 }
-
+const TodoItem = ({todo, onToggle}) => {
+  return (
+    <li key={todo.id}>
+      <label>
+        <input
+          type="checkbox"
+          checked={todo.completed}
+          onChange={e => onToggle(todo, e.target.checked)}
+        />
+        {todo.completed? <s>{todo.text}</s>: todo.text}
+      </label>
+    </li>
+  )
+}
 export default TodosPage;

@@ -32,7 +32,7 @@ const BooksManagePage = () => {
   
   const handleEdit = async(id, name, like)=>{
     await JsonServer({type: 'edit-book', id, name, like});
-    // change book name at BookList.
+    // change book name at BookList component.
   }
   return (
     <div className="app">
