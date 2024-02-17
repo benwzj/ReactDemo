@@ -1,7 +1,26 @@
-import '../css/SearchBar.css';
-import { useState, useEffect } from 'react';
 
-function SearchBar({ goGetIt, term }) {
+import { useState, useEffect } from 'react';
+import '../css/ImageList.css';
+import '../css/SearchBar.css';
+
+
+export function ImageList({ images }) {
+  const renderedImages = images.map((image) => {
+    return <ImageItem key={image.id} image={image} />;
+  });
+
+  return <div className="image-list">{renderedImages}</div>;
+}
+
+function ImageItem({ image }) {
+  return (
+    <div>
+      <img src={image.urls.small} alt={image.alt_description} />
+    </div>
+  );
+}
+
+export function SearchBar({ goGetIt, term }) {
   const [newTerm, setNewTerm] = useState(term);
   const [displayedTerm, setDisplayedTerm] = useState(term);
 
@@ -36,4 +55,3 @@ function SearchBar({ goGetIt, term }) {
   );
 }
 
-export default SearchBar;

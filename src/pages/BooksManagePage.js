@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import BookList from '../components/BookList';
-import BookCreate from '../components/BookCreate';
+import { BookList, BookCreate } from '../components/BooksManage';
 import JsonServer from '../api/JsonServer';
 
 const BooksManagePage = () => {
@@ -27,7 +26,7 @@ const BooksManagePage = () => {
     setBooks ((bs)=>{
       return bs.filter((b)=> b.id !== id)
     })
-    console.log('handleDeleteBook...');
+    //console.log('handleDeleteBook...');
   }
   
   const handleEdit = async(id, name, like)=>{

@@ -21,9 +21,6 @@
       "id": 13
     }
   ],
-  "picture-search": {
-    "term": "lightning"
-  },
   "todos": [
     {
       "text": "100 squat",
@@ -31,22 +28,23 @@
       "id": 102
     },
     {
-      "text": "KKK",
-      "completed": true,
-      "id": 106
-    },
-    {
       "text": "100 push up",
-      "completed": false,
+      "completed": true,
       "id": 107
     },
     {
       "text": "30 min FIIT",
       "completed": false,
       "id": 108
+    },
+    {
+      "text": "play tennis",
+      "completed": true,
+      "id": 109
     }
   ],
   "profile": {
-    "name": "typicode"
+    "todos_showactive": false,
+    "picture_search": "lightning"
   }
 }

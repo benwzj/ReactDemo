@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { GoChevronDown } from 'react-icons/go';
-import Panel from './Panel';
+import classNames from 'classnames';
 
 function Dropdown({ options, value, onChange }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,6 +55,19 @@ function Dropdown({ options, value, onChange }) {
         <GoChevronDown className="text-lg" />
       </Panel>
       {isOpen && <Panel className="absolute top-full">{renderedOptions}</Panel>}
+    </div>
+  );
+}
+
+function Panel({ children, className, ...rest }) {
+  const finalClassNames = classNames(
+    'border rounded p-3 shadow bg-white w-full',
+    className
+  );
+
+  return (
+    <div {...rest} className={finalClassNames}>
+      {children}
     </div>
   );
 }

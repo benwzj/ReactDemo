@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import SearchBar from '../components/SearchBar';
-import ImageList from '../components/ImageList';
+import { SearchBar, ImageList } from '../components/ImageSearch';
 import searchImages from '../api/Unsplash';
 import JsonServer from '../api/JsonServer';
 
@@ -12,20 +11,20 @@ function PicsPage() {
     const result = await searchImages(newTerm);
     setImages (result);
     setTerm (newTerm);
-    console.log ('newTerm: '+ newTerm);
-    await JsonServer ({type: 'update-picturesearch', term: newTerm});
+    //console.log ('newTerm: '+ newTerm);
+    await JsonServer ({type: 'edit-picturesearch', picture_search: newTerm});
   };
 
-  const initSearch = async()=>{
-    const search = await JsonServer ({type: 'get-picturesearch'});
-    console.log ("initSearch: " + search.term);
-    const result = await searchImages(search.term);
-    setTerm (search.term);
+  const fetchSearch = async()=>{
+    const res = await JsonServer ({type: 'get-picturesearch'});
+    console.log (res);
+    const result = await searchImages(res.picture_search);
+    setTerm (res.picture_search);
     setImages (result);
   }
 
   useEffect (()=>{
-    initSearch();
+    fetchSearch();
   },[]);
 
   return (
