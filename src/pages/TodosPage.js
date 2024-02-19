@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import JsonServer from '../api/JsonServer';
+import { RiCloseCircleLine } from 'react-icons/ri';
+import { TiEdit } from 'react-icons/ti';
+import '../css/TodosPage.css';
 
 const TodosPage = () => {
   const [todos, setTodos] = useState([]);
@@ -38,6 +41,7 @@ const TodosPage = () => {
     });
     setTodos([...todos, todo]); 
   }
+
   const handleToggle = async(todo, completed) =>{
     await JsonServer({
       type: 'edit-todo',
@@ -47,6 +51,7 @@ const TodosPage = () => {
     const newTodos = todos.map((t)=>t.id===todo.id? {...t,completed}: t);
     setTodos (newTodos);
   }
+
   const handleDelItem = async(id) =>{
     await JsonServer ({
       type: 'delete-todo', 
@@ -54,14 +59,30 @@ const TodosPage = () => {
     });
     setTodos(todos.filter(todo=>todo.id!==id)); 
   }
+
+  const handleEditItem = async(todo) =>{
+    await JsonServer ({
+      type: 'edit-todo',
+      ...todo
+    })
+    setTodos(todos.map(t=>t.id===todo.id? todo: t));
+  }
+
   const handleShowActive = async(e)=> {
     setShowActive (e.target.checked);
     await JsonServer ({type: 'edit-todos-showactive', showactive: e.target.checked});
   }
+
   const displayList = visibleTodos.map((todo)=>{
     //return <li key={todo.id}>{todo.completed? <s>{todo.text}</s>: todo.text}</li>;
-    return <TodoItem todo={todo} onToggle={handleToggle} onDel={handleDelItem}/>
+    return <TodoItem 
+      todo={todo} 
+      onToggle={handleToggle} 
+      onDel={handleDelItem}
+      onEdit={handleEditItem}
+    />
   })
+
   const footer = `There are ${activeTodoCount} todos left!`;
 
   return (
@@ -100,19 +121,28 @@ const NewTodo = ({onAdd}) => {
   )
 }
 
-const TodoItem = ({todo, onToggle, onDel}) => {
+const TodoItem = ({todo, onToggle, onDel, onEdit}) => {
 
   return (
     <li key={todo.id}>
-      <input
-        type="checkbox"
-        checked={todo.completed}
-        onChange={e => onToggle(todo, e.target.checked)}
-      />
-      <label>
-        &nbsp;&nbsp;{todo.completed? <s>{todo.text}</s>: todo.text}&nbsp;&nbsp;
-      </label>
-      <button className="delete hover_button" onClick={()=>onDel (todo.id)}>Del</button>
+      <div className="todo-item">
+        <label>
+          <input
+            type="checkbox"
+            checked={todo.completed}
+            onChange={e => onToggle(todo, e.target.checked)}
+          />
+          &nbsp;&nbsp;{todo.completed? <s>{todo.text}</s>: todo.text}&nbsp;&nbsp;
+        </label>
+        <div className="icons_hover">
+          <RiCloseCircleLine
+            onClick={() => onDel(todo.id)}
+          />
+          <TiEdit
+            onClick={() => onEdit({ id: todo.id, text: todo.text, completed: todo.completed })}
+          />
+        </div>      
+      </div>
     </li>
   )
 }

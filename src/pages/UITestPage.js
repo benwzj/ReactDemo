@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { GoBell, GoCloudDownload, GoDatabase } from 'react-icons/go';
+import { GoBell, GoCloud, GoDatabase } from 'react-icons/go';
 import Button from '../components/Button';
 import AnimalItem from '../components/AnimalItem';
 import Accordion from '../components/Accordion';
@@ -77,7 +77,7 @@ function UITestPage() {
         </div>
         <div>
           <Button danger outline>
-            <GoCloudDownload />
+            <GoCloud />
             Buy Now!
           </Button>
         </div>
