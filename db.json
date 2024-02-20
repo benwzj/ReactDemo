@@ -24,7 +24,7 @@
   "todos": [
     {
       "text": "100 squat",
-      "completed": false,
+      "completed": true,
       "id": 102
     },
     {
@@ -41,6 +41,46 @@
       "text": "play tennis",
       "completed": true,
       "id": 109
+    },
+    {
+      "text": "deffe",
+      "completed": false,
+      "id": 110
+    },
+    {
+      "text": "thisis test item",
+      "completed": false,
+      "id": 111
+    },
+    {
+      "text": "fefdf",
+      "completed": false,
+      "id": 112
+    },
+    {
+      "text": "fefddd",
+      "completed": false,
+      "id": 113
+    },
+    {
+      "text": "fefedcvdsfe",
+      "completed": false,
+      "id": 114
+    },
+    {
+      "text": "efdfef",
+      "completed": false,
+      "id": 115
+    },
+    {
+      "text": "fefdfe",
+      "completed": false,
+      "id": 116
+    },
+    {
+      "text": "dfefe",
+      "completed": false,
+      "id": 117
     }
   ],
   "profile": {

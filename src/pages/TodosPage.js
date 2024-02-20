@@ -86,22 +86,30 @@ const TodosPage = () => {
   const footer = `There are ${activeTodoCount} todos left!`;
 
   return (
-    <>
-      <label>
-        <input
-          type="checkbox"
-          checked={showActive}
-          onChange={handleShowActive}
-        />
-        &nbsp;Show only active todos
-      </label>
-      <NewTodo onAdd={handleAddTodo} />
-      <ul>
-        {displayList}
-      </ul>
+    <div className="todo-page">
+      <div>
+        <label>
+          <input
+            type="checkbox"
+            checked={showActive}
+            onChange={handleShowActive}
+          />
+          &nbsp;Show only active todos
+        </label>
+      </div>
+      <div>
+        <NewTodo onAdd={handleAddTodo} />
+      </div>
+      <div>
+        <ul>
+          {displayList}
+        </ul>
+      </div>
       <br/>
-      <footer>{footer}</footer>
-    </>
+      <div>
+        <footer>{footer}</footer>
+      </div>
+    </div>
   );
 }
 
@@ -112,12 +120,12 @@ const NewTodo = ({onAdd}) => {
     setText('');
   }
   return (
-    <>
-      <input className="input" value={text} onChange={e => setText(e.target.value)} />
-      <button className="button" onClick={handleAdd} disabled={text===''}>
+    <div className="todo-new">
+      <input className="todo-input" value={text} onChange={e => setText(e.target.value)} />
+      <button className="todo-button" onClick={handleAdd} disabled={text===''}>
         Add Todo
       </button>
-    </>
+    </div>
   )
 }
 
@@ -126,14 +134,16 @@ const TodoItem = ({todo, onToggle, onDel, onEdit}) => {
   return (
     <li key={todo.id}>
       <div className="todo-item">
-        <label>
-          <input
-            type="checkbox"
-            checked={todo.completed}
-            onChange={e => onToggle(todo, e.target.checked)}
-          />
-          &nbsp;&nbsp;{todo.completed? <s>{todo.text}</s>: todo.text}&nbsp;&nbsp;
-        </label>
+        <div className="todo-label">
+          <label>
+            <input
+              type="checkbox"
+              checked={todo.completed}
+              onChange={e => onToggle(todo, e.target.checked)}
+            />
+            &nbsp;&nbsp;{todo.completed? <s>{todo.text}</s>: todo.text}&nbsp;&nbsp;
+          </label>
+        </div>
         <div className="icons_hover">
           <RiCloseCircleLine
             onClick={() => onDel(todo.id)}

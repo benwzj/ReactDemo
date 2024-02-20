@@ -13,15 +13,15 @@ body {
     rgba(100, 115, 255, 1) 100%
   );
 } */
-.todo-app {
+.todo-page {
   display: flex;
   flex-direction: column;
   justify-content: start;
   width: 520px;
-  min-height: 600px;
+  min-height: 700px;
   background: #161a2b;
   text-align: center;
-  margin: 128px auto;
+  margin: 30px auto;
   border-radius: 10px;
   padding-bottom: 32px;
 }
@@ -37,8 +37,10 @@ h1 {
   opacity: 0.4;
 }
 
-.todo-form {
+.todo-new {
+  display: flex;
   margin-bottom: 32px;
+  justify-content: center;
 }
 
 .todo-input {
@@ -46,7 +48,7 @@ h1 {
   border-radius: 4px 0 0 4px;
   border: 2px solid #5d0cff;
   outline: none;
-  width: 320px;
+  width: 300px;
   background: transparent;
   color: #fff;
 }
@@ -83,13 +85,7 @@ h1 {
   padding: 16px 22px;
 }
 
-.todo-container {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-}
-
-.todo-row {
+.todo-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -106,7 +102,7 @@ h1 {
   width: 90%;
 }
 
-.todo-row:nth-child(4n + 1) {
+.todo-item:nth-child(4n + 1) {
   background: linear-gradient(
     90deg,
     rgba(93, 12, 255, 1) 0%,
@@ -114,7 +110,7 @@ h1 {
   );
 }
 
-.todo-row:nth-child(4n + 2) {
+.todo-item:nth-child(4n + 2) {
   background: linear-gradient(
     90deg,
     rgba(255, 12, 241, 1) 0%,
@@ -122,16 +118,12 @@ h1 {
   );
 }
 
-.todo-row:nth-child(4n + 3) {
+.todo-item:nth-child(4n + 3) {
   background: linear-gradient(
     90deg,
     rgba(20, 159, 255, 1) 0%,
     rgba(17, 122, 255, 1) 100%
   );
-}
-
-.todo-item{
-  display: flex;
 }
 
 .delete-icon {
@@ -149,7 +141,9 @@ h1 {
   font-size: 24px;
   cursor: pointer;
 }
-
-label:hover + .icons_hover, .icons_hover:hover {
+.icon_label {
+  color:  #fff;
+}
+.todo-item:hover + .icons_hover, .icons_hover:hover {
   display: flex;
 }
