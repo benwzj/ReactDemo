@@ -63,7 +63,7 @@ function UITestPage() {
         <Dropdown options={options} value={selection} onChange={handleSelect} />
       </div>
       <div className='test-panel'>
-        Button Test
+        Button Test, Using react icon:
         <div>
           <Button
             secondary
@@ -101,6 +101,12 @@ function UITestPage() {
           <div className="animal-list">{renderedAnimals}</div>
         </div>
       </div>
+      <div className='test-panel'>
+        Use Font Awesome Icons: 
+        <i className="fas fa-trash" />
+        <i className="fas fa-pen" />
+      </div>
+      
     </div>
 
   );

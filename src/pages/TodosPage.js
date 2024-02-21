@@ -41,7 +41,7 @@ const TodosPage = () => {
     setTodos([...todos, todo]); 
   }
 
-  const handleCompleted = async(todo, completed) =>{
+  const handleUpdateCompleted = async(todo, completed) =>{
     await JsonServer({
       type: 'edit-todo',
       ...todo,
@@ -76,7 +76,7 @@ const TodosPage = () => {
     //return <li key={todo.id}>{todo.completed? <s>{todo.text}</s>: todo.text}</li>;
     return <TodoItem 
       todo={todo} 
-      onCompleted={handleCompleted} 
+      onUpdateCompleted={handleUpdateCompleted} 
       onDel={handleDelItem}
       onUpdate={handleUpdateItem}
       key={todo.id}

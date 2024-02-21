@@ -113,7 +113,7 @@ h1 {
   width: 90%;
 }
 .todo-item-label{
-  position: relative;
+  position: relative; 
   transition: opacity 0.4s linear;
 }
 .todo-item-label.completed {

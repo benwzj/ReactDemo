@@ -34,8 +34,18 @@
     },
     {
       "text": "play tennis",
-      "completed": true,
+      "completed": false,
       "id": 109
+    },
+    {
+      "text": "this is todo app",
+      "completed": true,
+      "id": 110
+    },
+    {
+      "text": "30 minutes FIIT",
+      "completed": true,
+      "id": 111
     }
   ],
   "profile": {
