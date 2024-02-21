@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
+import { TodoItem, NewTodo } from "../components/Todos";
 import JsonServer from '../api/JsonServer';
-import { RiCloseCircleLine } from 'react-icons/ri';
-import { TiEdit } from 'react-icons/ti';
 import '../css/TodosPage.css';
 
 const TodosPage = () => {
@@ -42,7 +41,7 @@ const TodosPage = () => {
     setTodos([...todos, todo]); 
   }
 
-  const handleToggle = async(todo, completed) =>{
+  const handleCompleted = async(todo, completed) =>{
     await JsonServer({
       type: 'edit-todo',
       ...todo,
@@ -60,7 +59,7 @@ const TodosPage = () => {
     setTodos(todos.filter(todo=>todo.id!==id)); 
   }
 
-  const handleEditItem = async(todo) =>{
+  const handleUpdateItem = async(todo) =>{
     await JsonServer ({
       type: 'edit-todo',
       ...todo
@@ -77,9 +76,10 @@ const TodosPage = () => {
     //return <li key={todo.id}>{todo.completed? <s>{todo.text}</s>: todo.text}</li>;
     return <TodoItem 
       todo={todo} 
-      onToggle={handleToggle} 
+      onCompleted={handleCompleted} 
       onDel={handleDelItem}
-      onEdit={handleEditItem}
+      onUpdate={handleUpdateItem}
+      key={todo.id}
     />
   })
 
@@ -87,13 +87,13 @@ const TodosPage = () => {
 
   return (
     <div className="todo-page">
-      <div>
+      <div className="todo-showactive">
+        <input
+          type="checkbox"
+          checked={showActive}
+          onChange={handleShowActive}
+        />
         <label>
-          <input
-            type="checkbox"
-            checked={showActive}
-            onChange={handleShowActive}
-          />
           &nbsp;Show only active todos
         </label>
       </div>
@@ -106,54 +106,11 @@ const TodosPage = () => {
         </ul>
       </div>
       <br/>
-      <div>
+      <div className="todo-footer">
         <footer>{footer}</footer>
       </div>
     </div>
   );
 }
 
-const NewTodo = ({onAdd}) => {
-  const [text, setText] = useState('');
-  const handleAdd = () => {
-    onAdd(text);
-    setText('');
-  }
-  return (
-    <div className="todo-new">
-      <input className="todo-input" value={text} onChange={e => setText(e.target.value)} />
-      <button className="todo-button" onClick={handleAdd} disabled={text===''}>
-        Add Todo
-      </button>
-    </div>
-  )
-}
-
-const TodoItem = ({todo, onToggle, onDel, onEdit}) => {
-
-  return (
-    <li key={todo.id}>
-      <div className="todo-item">
-        <div className="todo-label">
-          <label>
-            <input
-              type="checkbox"
-              checked={todo.completed}
-              onChange={e => onToggle(todo, e.target.checked)}
-            />
-            &nbsp;&nbsp;{todo.completed? <s>{todo.text}</s>: todo.text}&nbsp;&nbsp;
-          </label>
-        </div>
-        <div className="icons_hover">
-          <RiCloseCircleLine
-            onClick={() => onDel(todo.id)}
-          />
-          <TiEdit
-            onClick={() => onEdit({ id: todo.id, text: todo.text, completed: todo.completed })}
-          />
-        </div>      
-      </div>
-    </li>
-  )
-}
 export default TodosPage;
