@@ -39,7 +39,7 @@
     },
     {
       "text": "this is todo app",
-      "completed": true,
+      "completed": false,
       "id": 110
     },
     {

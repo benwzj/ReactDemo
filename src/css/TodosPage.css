@@ -120,11 +120,11 @@ h1 {
   opacity: 0.6;
 }
 
-.todo-item-label.completed:before {
+.todo-item-label.completed::before {
   content: "";
   position: absolute;
   top: 50%;
-  left: -0.5rem;
+  left: 1rem;
   display: block;
   width: 0%;
   height: 2px;

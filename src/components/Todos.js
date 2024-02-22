@@ -12,6 +12,10 @@ export const TodoItem = ({todo, onUpdateCompleted, onDel, onUpdate}) => {
     setEditing (false);
     onUpdate({id: todo.id, text: editText, completed: editCompleted });
   }
+  const handleCancelUpdate = () =>{
+    setEditing (false);
+    setEditCompleted (todo.completed);
+  }
   const completedlabel = () =>{
     if (todo.completed){
       return editCompleted ? 'Have been Completed!' : 'You Mark it as Uncompleted!';
@@ -41,7 +45,7 @@ export const TodoItem = ({todo, onUpdateCompleted, onDel, onUpdate}) => {
           <button className="todo-edit-button" onClick={handleUpdate} disabled={editText===''}>
             Save
           </button>
-          <button className="todo-edit-button" onClick={()=>setEditing (false)} disabled={editText===''}>
+          <button className="todo-edit-button" onClick={handleCancelUpdate} disabled={editText===''}>
             Cancel  
           </button>
         </div>
