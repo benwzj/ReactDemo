@@ -1,58 +1,4 @@
 {
-  "books": [
-    {
-      "name": "thisis a like one",
-      "like": 21,
-      "id": 8
-    },
-    {
-      "name": "Levin",
-      "like": 5,
-      "id": 11
-    },
-    {
-      "name": "Elise",
-      "like": 7,
-      "id": 12
-    },
-    {
-      "name": "About React",
-      "like": 4,
-      "id": 13
-    }
-  ],
-  "todos": [
-    {
-      "text": "100 squat",
-      "completed": true,
-      "id": 102
-    },
-    {
-      "text": "100 push upkkdjejkjelldd fedf ",
-      "completed": false,
-      "id": 107
-    },
-    {
-      "text": "play tennis",
-      "completed": true,
-      "id": 109
-    },
-    {
-      "text": "this is todo app",
-      "completed": false,
-      "id": 110
-    },
-    {
-      "text": "30 minutes FIIT",
-      "completed": true,
-      "id": 111
-    },
-    {
-      "text": "ccwdw",
-      "completed": false,
-      "id": 112
-    }
-  ],
   "cooler_pads": [
     {
       "make": "Bonaire",
@@ -112,9 +58,5 @@
       "size": "4*9955x378X100MM",
       "id": 1009
     }
-  ],
-  "profile": {
-    "todos_showactive": false,
-    "picture_search": "lightning"
-  }
+  ]
 }

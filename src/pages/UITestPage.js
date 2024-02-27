@@ -4,6 +4,7 @@ import Button from '../components/Button';
 import AnimalItem from '../components/AnimalItem';
 import Accordion from '../components/Accordion';
 import Dropdown from '../components/Dropdown';
+import CoolerpadDemo from '../components/CoolerpadDemo';
 import '../css/UITestPage.css';
 
 const items = [
@@ -35,6 +36,7 @@ function getRandomAnimal() {
   const animals = ['bird', 'cat', 'cow', 'dog', 'gator', 'horse'];
   return animals[Math.floor(Math.random() * animals.length)];
 }
+
 
 function UITestPage() {
   
@@ -106,10 +108,14 @@ function UITestPage() {
         <i className="fas fa-trash" />
         <i className="fas fa-pen" />
       </div>
-      
+      <div className='test-panel'>
+        Cooler pads Demo:
+        <CoolerpadDemo/>
+      </div>
     </div>
 
   );
 }
+
 
 export default UITestPage;

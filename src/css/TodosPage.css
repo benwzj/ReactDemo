@@ -129,12 +129,13 @@ h1 {
   width: 0%;
   height: 2px;
   background: #fff;
-  animation: strikeitem 0.5s ease-out 0s forwards;
+  animation: strikeitem 0.5s ease-out 0s forwards; 
 }
+
 
 @keyframes strikeitem {
   to {
-    width: calc(100% + 1rem);
+    width: calc(100%);
   }
 }
 

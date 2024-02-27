@@ -25,3 +25,23 @@ button {
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.coolerpad-container{
+  display: flex;
+}
+.collerpad-list{
+  overflow: auto;
+  padding: 20px;
+  margin: 10px;
+  border-color: greenyellow;
+  border-width: 1px;
+  width: 30%;
+  height: 400px;
+}
+
+.display-item{
+  background-color: white;
+}
+.display-item-selected{
+  background-color: greenyellow;
+}
