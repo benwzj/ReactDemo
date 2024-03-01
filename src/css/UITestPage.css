@@ -41,6 +41,7 @@ button {
 
 .display-item{
   background-color: white;
+  cursor: pointer;
 }
 .display-item-selected{
   background-color: greenyellow;
