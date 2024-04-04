@@ -1,17 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState, memo } from 'react';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { TiEdit } from 'react-icons/ti';
 import '../css/TodosPage.css';
 
-export const TodoItem = ({todo, onUpdateCompleted, onDel, onUpdate}) => {
-  const [editing, setEditing] = useState(false);
-  const [editText, setEditText] = useState(todo.text)
-  const [editCompleted, setEditCompleted] = useState(todo.completed)
 
+export const TodoItem = memo(function TI({todo, onUpdateCompleted, onDel, onUpdate}) {
+  const [editing, setEditing] = useState(false);
+  const [editText, setEditText] = useState(todo.text);
+  const [editCompleted, setEditCompleted] = useState(todo.completed);
+  const renderCount = useRef(0);
+  
+  useEffect (()=>{
+    renderCount.current = renderCount.current + 1;
+  });
   const handleUpdate = () => {
     setEditing (false);
     onUpdate({id: todo.id, text: editText, completed: editCompleted });
-  }
+  };
   const handleCancelUpdate = () =>{
     setEditing (false);
     setEditCompleted (todo.completed);
@@ -66,7 +71,7 @@ export const TodoItem = ({todo, onUpdateCompleted, onDel, onUpdate}) => {
               onChange={e => onUpdateCompleted(todo, e.target.checked)}
             />
             {/* &nbsp;&nbsp;{todo.completed? <s>{todo.text}</s>: todo.text}&nbsp;&nbsp; */}
-            &nbsp;&nbsp;{todo.text}
+            &nbsp;&nbsp;{todo.text+ ' ('+renderCount.current+')'}
           </label>
         </div>
         <div className="icons_hover">
@@ -82,7 +87,7 @@ export const TodoItem = ({todo, onUpdateCompleted, onDel, onUpdate}) => {
     </li>
   )
   return editing ? editStateTodoItem : normalStateTodoItem;
-}
+})
 
 export const NewTodo = ({onAdd}) => {
   const [text, setText] = useState('');
