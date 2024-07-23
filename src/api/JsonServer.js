@@ -3,6 +3,21 @@ import axios from 'axios';
 const JsonServer = async(data) => {
 
   switch (data.type){
+    case 'connection':
+    {
+      try {
+        const response = await fetch('http://localhost:3001/profile');
+        if (!response.ok) {
+          throw new Error(`Response status: ${response.status}`);
+        }
+        const json = await response.json();
+        return json;
+      } catch (error) {
+        //console.error(error.message);
+        return null;
+      }
+      
+    }
     case 'create-book':
     {
       const response = await axios.post('http://localhost:3001/books', {

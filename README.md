@@ -2,9 +2,9 @@
 
 ReactDemo is ReactJS exercise app to run through many React Feature, like nevigation, controlled input, using API, handle list, etc.
 
-This app is using `npx create-react-app ReactDemo` to create!
-
-- This app will connect to JSON sever for managing data. Start JSON Sever by: `npm run server` under `this app directionary` in terminor.
+- This app is using `npx create-react-app ReactDemo` to create!
+- This app need to connect to JSON sever for managing data before it works properly. 
+- Start JSON Sever by: `npm run server` under `this app directionary` in terminor.
 
 ### JSONServer
 [Morn info](https://www.npmjs.com/package/json-server)

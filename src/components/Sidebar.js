@@ -1,6 +1,34 @@
+import { useEffect,useState } from "react";
 import Link from './Link';
+import JsonServer from '../api/JsonServer';
 
 function Sidebar() {
+
+  const [connection, setConnection] = useState('No Server Connection');
+
+  useEffect (()=>{
+    repeatServerConnectionTest();
+  },[]); 
+
+  const testConnection = async() => {
+    
+    const data = {type: 'connection'};
+    const conn = await JsonServer (data);
+    // console.log("testConnection");
+    console.log(conn);
+    if (conn) 
+      setConnection (conn.connection);    
+    else
+      setConnection ('No Server Connection');  
+  }
+  const repeatServerConnectionTest = async() => {
+    await testConnection();
+    setTimeout ( () => {
+      repeatServerConnectionTest();
+    }, 5000);
+  }
+
+
   const links = [
     { label: 'Todos', path: '/' },
     { label: 'UnsplashPictures', path: '/pics' },
@@ -23,8 +51,12 @@ function Sidebar() {
 
   return (
     <div className="sticky top-0 overflow-y-scroll flex flex-col items-start">
-      {renderedLinks}
+      <div className="sticky top-0 overflow-y-scroll flex flex-col items-start">
+        {renderedLinks}
+      </div>
+      <div className="text-red-600 items-end">{connection}</div>
     </div>
+
   );
 }
 

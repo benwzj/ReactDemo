@@ -24,7 +24,7 @@
   "todos": [
     {
       "text": "100 squat",
-      "completed": false,
+      "completed": true,
       "id": 102
     },
     {
@@ -44,7 +44,7 @@
     },
     {
       "text": "cvvrr",
-      "completed": false,
+      "completed": true,
       "id": 112
     },
     {
@@ -130,6 +130,7 @@
   ],
   "profile": {
     "todos_showactive": false,
-    "picture_search": "lightning"
+    "picture_search": "lightning",
+    "connection": "Connect to Json Dummy Server"
   }
 }
