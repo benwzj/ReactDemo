@@ -2,9 +2,10 @@ import { useEffect,useState } from "react";
 import Link from './Link';
 import JsonServer from '../api/JsonServer';
 
+const noConnectionHint = 'No Server Connection!';
 function Sidebar() {
 
-  const [connection, setConnection] = useState('No Server Connection');
+  const [connection, setConnection] = useState(noConnectionHint);
 
   useEffect (()=>{
     repeatServerConnectionTest();
@@ -19,7 +20,7 @@ function Sidebar() {
     if (conn) 
       setConnection (conn.connection);    
     else
-      setConnection ('No Server Connection');  
+      setConnection (noConnectionHint);  
   }
   const repeatServerConnectionTest = async() => {
     await testConnection();
@@ -49,12 +50,15 @@ function Sidebar() {
     );
   });
 
+  const connectionInfoClass = (connection === noConnectionHint)? 
+                                     "text-red-600" : "text-green-600";
+
   return (
-    <div className="sticky top-0 overflow-y-scroll flex flex-col items-start">
-      <div className="sticky top-0 overflow-y-scroll flex flex-col items-start">
+    <div className="sticky flex flex-col justify-between top-0 h-screen p-1 pb-6">
+      <div className="flex flex-col items-start">
         {renderedLinks}
       </div>
-      <div className="text-red-600 items-end">{connection}</div>
+      <div className={connectionInfoClass}>{connection}</div>
     </div>
 
   );

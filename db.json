@@ -29,17 +29,12 @@
     },
     {
       "text": "100 push upkkdjejkjelldd fedf ",
-      "completed": false,
+      "completed": true,
       "id": 107
     },
     {
-      "text": "this is todo app",
-      "completed": true,
-      "id": 110
-    },
-    {
       "text": "this is new one",
-      "completed": false,
+      "completed": true,
       "id": 111
     },
     {
@@ -49,7 +44,7 @@
     },
     {
       "text": "antoher",
-      "completed": false,
+      "completed": true,
       "id": 113
     },
     {
@@ -66,6 +61,11 @@
       "text": "8888",
       "completed": false,
       "id": 116
+    },
+    {
+      "text": "new one",
+      "completed": false,
+      "id": 117
     }
   ],
   "cooler_pads": [
@@ -130,7 +130,7 @@
   ],
   "profile": {
     "todos_showactive": false,
-    "picture_search": "lightning",
+    "picture_search": "little girl",
     "connection": "Connect to Json Dummy Server"
   }
 }
