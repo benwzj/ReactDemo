@@ -30,15 +30,7 @@ For example, you want to store states for your new functionality in this App, yo
 limitation: 50 API visits per minute
 
 ## Available Scripts
-In the project directory, you can run:
+- `npm install`
+- `npm start`
 
-### `npm install`
-Install Dependencies according to package-lock.json
-
-### `npm start`
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 

@@ -7,9 +7,12 @@ import TodosPage from './pages/TodosPage';
 
 function App() {
   return (
-    <div className="container mx-auto grid grid-cols-6 gap-4 mt-4">
-      <Sidebar />
-      <div className="col-span-5">
+    // <div className="container mx-auto grid grid-cols-6 gap-4 mt-4">
+    <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
+      <div className="w-full flex-none md:w-64">
+        <Sidebar />
+      </div>
+      <div className="flex-grow p-6 md:overflow-y-auto md:p-12">
         <Route path="/">
           <TodosPage />
         </Route>
