@@ -1,8 +1,8 @@
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import Link from './Link';
 import ReactDemoLogo from './rd-logo';
 import JsonServer from '../api/JsonServer';
-
+import clsx from 'clsx';
 
 const noConnectionHint = 'No Server Connection!';
 
@@ -12,7 +12,7 @@ function Sidebar() {
 
   useEffect (()=>{
     repeatServerConnectionTest();
-  },[]); 
+  }, []); 
 
   const testConnection = async() => {
     
@@ -46,17 +46,13 @@ function Sidebar() {
       <Link
         key={link.label}
         to={link.path}
-        className="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
+        className="flex h-[48px] items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
         activeClassName="bg-sky-100 text-blue-600"
       >
         <p className="hidden md:block">{link.label}</p>
       </Link>
     );
   });
-
-  const connectionInfoClass = (connection === noConnectionHint)? 
-                              "text-red-600" : 
-                              "text-green-600";
 
   return (
     // <div className="sticky flex flex-col justify-between top-0 h-screen p-1 pb-6">
@@ -68,13 +64,22 @@ function Sidebar() {
           <ReactDemoLogo />
         </div>
       </div>
-      <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
+      <div className="flex flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
         {renderedLinks}
       </div>
-      <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div>
-      <div className={connectionInfoClass}>{connection}</div>
+      <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block md:mt-2"></div>
+      <div className={clsx(
+          "flex h-[48px] items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium md:flex-none md:justify-start md:p-2 md:px-3",
+          {
+            "text-red-600": connection === noConnectionHint,
+          },
+          {
+            "text-green-600": connection !== noConnectionHint,
+          }
+        )}>
+        {connection}
+      </div>
     </div>
-
   );
 }
 
