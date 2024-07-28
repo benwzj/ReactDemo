@@ -35,7 +35,10 @@ function PicsPage() {
       whenever it needs to update the state of parent, the function will be called. 
       Here is the example: PicsPage is parent component, and SearchBar is child.
       */}
-      <SearchBar goGetIt={handleSubmit} term={term}/>
+      <div className="flex w-full items-center justify-between">
+        <h1 className={`text-4xl text-blue-700 font-serif font-bold`}>Picture Search</h1>
+      </div>
+      <SearchBar onSubmit={handleSubmit} term={term}/>
       <br/>
       <ImageList images={images} />
     </div>

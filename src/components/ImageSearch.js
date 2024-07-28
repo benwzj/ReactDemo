@@ -1,7 +1,7 @@
-
 import { useState, useEffect } from 'react';
 import '../css/ImageList.css';
 import '../css/SearchBar.css';
+import { RxMagnifyingGlass } from "react-icons/rx";
 
 
 export function ImageList({ images }) {
@@ -20,8 +20,8 @@ function ImageItem({ image }) {
   );
 }
 
-export function SearchBar({ goGetIt, term }) {
-  const [newTerm, setNewTerm] = useState(term);
+export function SearchBar({ onSubmit, term }) {
+  const [Input, setInput] = useState(term);
   const [displayedTerm, setDisplayedTerm] = useState(term);
 
   useEffect(()=>{
@@ -31,27 +31,41 @@ export function SearchBar({ goGetIt, term }) {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    goGetIt(newTerm);
-    setDisplayedTerm (newTerm);
-    setNewTerm ('');
+    onSubmit(Input);
+    setDisplayedTerm (Input);
+    setInput ('');
   };
 
   const handleChange = (event) => {
-    setNewTerm(event.target.value);
+    setInput(event.target.value);
   };
 
-  const labelContent = displayedTerm ?
-    `Display Photos for term "${displayedTerm}"`: '' 
-
   return (
-    <div className="search-bar">
+    
       <form onSubmit={handleFormSubmit}>
-        <label>Enter Search Term</label>
-        <input className="input" value={newTerm} onChange={handleChange} />
-        <button disabled={newTerm===''}>Search</button>
+        <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
+          <div className="relative flex flex-1 flex-shrink-0">
+            <label htmlFor="search" className="sr-only">
+              Search
+            </label>
+            <input 
+              className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+              placeholder={term} 
+              value={Input} 
+              onChange={handleChange} 
+              id="search"
+            />
+            <RxMagnifyingGlass className="absolute left-3 top-5 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+          </div> 
+          <button 
+            className="flex h-10 items-center rounded-lg bg-blue-600 px-4 text-sm font-medium text-white transition-colors hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+            disabled={Input===''}
+          >
+              Search Picture
+          </button>
+        </div>
       </form>
-      <h3>{labelContent}</h3>
-    </div>
+    
   );
 }
 

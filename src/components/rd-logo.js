@@ -1,12 +1,13 @@
-import { GoDatabase } from 'react-icons/go';
+
+import { FaEarthOceania } from "react-icons/fa6";
 
 export default function ReactDemoLogo() {
   return (
     <div
       className='flex flex-row items-center leading-none text-white'
     >
-      <GoDatabase className="h-12 w-12 rotate-[15deg]" />
-      <p className="text-[44px]">Demo</p>
+      <FaEarthOceania className="h-12 w-20 rotate-[15deg]" />
+      <p className="text-[40px] font-serif font-black italic"> &nbsp;Demo</p>
     </div>
   );
 }
