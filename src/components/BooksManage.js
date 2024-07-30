@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { IoIosAdd } from "react-icons/io";
+import { MdOutlineEdit } from "react-icons/md";
+import { RiDeleteBinLine } from "react-icons/ri";
+import { BiLike } from "react-icons/bi";
 
 export function BookList({books, onDelete, onEdit}){
 
@@ -7,7 +10,7 @@ export function BookList({books, onDelete, onEdit}){
     return <BookItem key={book.id} book={book} onDelete={onDelete} onEdit={onEdit}/>
   })
   return (
-    <div className="book-list">
+    <div className="flex flex-wrap">
       {renderList}
     </div>
   )
@@ -37,7 +40,7 @@ export const BookCreate = ({onCreate}) =>{
               value={bookName} 
               onChange={handleInputChange}
             />
-            <IoIosAdd className="absolute left-3 top-5 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+            <MdOutlineEdit className="absolute left-3 top-5 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
           </div>
         
           <div 
@@ -77,24 +80,34 @@ const BookItem = ({book, onDelete, onEdit}) =>{
   const handleCancel = () =>{
     setEditStatus (false);
   }
-  const displayContent = editStatus ? 
-    <BookEdit onEdit={handleEdit} onCancel={handleCancel} book={book} /> : 
-    <><h3>{book.name}</h3> <label>Like: {book.like}</label></>
+
+  const bookEditPanel = <BookEdit onEdit={handleEdit} onCancel={handleCancel} book={book} />;
+  const bookInfoPanel = <><h3>{book.name}</h3> <label>Like: {book.like}</label></>;
+  const displayingPanel = editStatus ? bookEditPanel : bookInfoPanel;
 
   return (
-    <div className="book-show">
+    <div className="relative border border-gray-300 rounded-md px-3 w-56 m-2 pt-8">
       <img alt="books" src={`https://picsum.photos/seed/${book.id}/300/200`} />
-      <div>{displayContent}</div>
-      <div className="actions">
-        <button className="edit" onClick={handleEditClick} >
-          Edit
-        </button>
-        <button className="delete" onClick={handleDelete}>
-          Delete
-        </button>
-        <button className="like" onClick={handleFavorite}>
-          Like
-        </button>
+      <div>{displayingPanel}</div>
+      <div className="absolute pl-4 right-1 top-1 flex gap-1">
+        <div 
+          className="relative border-0 rounded-full w-5 h-5 text-white bg-gray-400/70 hover:bg-gray-700/70 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none" 
+          onClick={handleEditClick} 
+        >
+          <MdOutlineEdit className="absolute top-0.5 left-0.5 " />
+        </div>
+        <div 
+          className="relative border-0 rounded-full w-5 h-5 text-white bg-gray-400/70 hover:bg-gray-700/70 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none" 
+          onClick={handleDelete} 
+        >
+          <RiDeleteBinLine className="absolute top-0.5 left-0.5 " />
+        </div>
+        <div 
+          className="relative border-0 rounded-full w-5 h-5 text-white bg-gray-400/70 hover:bg-gray-700/70 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none" 
+          onClick={handleFavorite} 
+        >
+          <BiLike className="absolute top-0.5 left-0.5 " />
+        </div>
       </div>
     </div>
   )
@@ -112,16 +125,36 @@ const BookEdit = ({book, onEdit, onCancel}) =>{
     event.preventDefault();
     onEdit(bookName);
   }
+
   const handleCancel =()=>{
     onCancel();
   }
+
   return (
-    <div className="book-edit">
+    <div className="flex flex-col ">
       <form onSubmit={handleSubmit}>
-        <label>Name</label>
-        <input className="input" value={bookName} onChange={handleInputChange}/>
-        <button type="submit" className="button"> Confirm </button> 
-        <button type='button' className="button" onClick={handleCancel}> Cancel </button>
+        <label className="pl-2" htmlFor="edit-book-name">Name:</label>
+        <input 
+          id="edit-book-name" 
+          className="block w-full rounded-md border border-gray-200 py-[9px] pl-2 text-sm outline-1 m-1" 
+          value={bookName} 
+          onChange={handleInputChange}
+        />
+        <div className="flex gap-1 p-1">
+          <button 
+            type="submit" 
+            className="h-10 w-20 rounded-lg bg-blue-600 px-2 text-sm font-medium text-white transition-colors hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+          > 
+            Confirm 
+          </button> 
+          <button 
+            type="button"
+            className="h-10 w-20 rounded-lg bg-blue-600 px-2 text-sm font-medium text-white transition-colors hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600" 
+            onClick={handleCancel}
+          > 
+            Cancel 
+          </button>
+        </div>
       </form>
     </div>
   )

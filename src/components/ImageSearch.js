@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import '../css/ImageList.css';
-import '../css/SearchBar.css';
 import { RxMagnifyingGlass } from "react-icons/rx";
 
 
@@ -9,7 +7,7 @@ export function ImageList({ images }) {
     return <ImageItem key={image.id} image={image} />;
   });
 
-  return <div className="image-list">{renderedImages}</div>;
+  return <div className="columns-2 gap-2 md:columns-4 lg:columns-6">{renderedImages}</div>;
 }
 
 function ImageItem({ image }) {
