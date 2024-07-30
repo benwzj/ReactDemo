@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import Link from './Link';
 import ReactDemoLogo from './rd-logo';
 import JsonServer from '../api/JsonServer';
-import clsx from 'clsx';
+import classNames from 'classnames';
+import { LuListTodo } from "react-icons/lu";
+import { AiOutlinePicture } from "react-icons/ai";
+import { GiSecretBook } from "react-icons/gi";
+import { GrTest } from "react-icons/gr";
 
 const noConnectionHint = 'No Server Connection!';
 
@@ -30,25 +34,27 @@ function Sidebar() {
     await testConnection();
     setTimeout ( () => {
       repeatServerConnectionTest();
-    }, 5000);
+    }, 10000);
   }
 
 
   const links = [
-    { label: 'Todos', path: '/' },
-    { label: 'UnsplashPictures', path: '/pics' },
-    { label: 'BooksManage', path: '/bookmanage' },
-    { label: 'UI Test', path: '/buttons' },
+    { label: 'Todos', path: '/', icon: LuListTodo},
+    { label: 'UnsplashPictures', path: '/pics' ,icon: AiOutlinePicture},
+    { label: 'BooksManage', path: '/bookmanage', icon: GiSecretBook},
+    { label: 'UI Test', path: '/buttons', icon: GrTest},
   ];
 
   const renderedLinks = links.map((link) => {
+    const LinkIcon = link.icon;
     return (
       <Link
         key={link.label}
         to={link.path}
-        className="flex h-[48px] items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
+        className="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
         activeClassName="bg-sky-100 text-blue-600"
       >
+        <LinkIcon />
         <p className="hidden md:block">{link.label}</p>
       </Link>
     );
@@ -68,7 +74,7 @@ function Sidebar() {
         {renderedLinks}
       </div>
       <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block md:mt-2"></div>
-      <div className={clsx(
+      <div className={classNames(
           "flex h-[48px] items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium md:flex-none md:justify-start md:p-2 md:px-3",
           {
             "text-red-600": connection === noConnectionHint,

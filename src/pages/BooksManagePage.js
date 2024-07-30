@@ -34,7 +34,10 @@ const BooksManagePage = () => {
     // change book name at BookList component.
   }
   return (
-    <div className="app">
+    <div className="w-full">
+      <div className="flex w-full items-center justify-between">
+        <h1 className={"text-4xl text-blue-700 font-serif font-bold"}>Manage Books</h1>
+      </div>
       <BookCreate onCreate={createHandler}/>      
       <BookList books={books} onDelete={handleDeleteBook} onEdit={handleEdit}/>
     </div>

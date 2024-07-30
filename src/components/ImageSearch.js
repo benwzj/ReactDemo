@@ -35,9 +35,8 @@ export function SearchBar({ onSubmit, term }) {
   };
 
   return (
-    
       <form onSubmit={handleFormSubmit}>
-        <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
+        <div className="mt-4 flex justify-between gap-2 md:mt-8">
           <div className="relative flex flex-1 ">
             <label htmlFor="search" className="sr-only">
               Search
@@ -49,19 +48,18 @@ export function SearchBar({ onSubmit, term }) {
               onChange={handleChange} 
               id="search"
             />
-            {/* <RxMagnifyingGlass className="absolute left-3 top-5 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" /> */}
+            <RxMagnifyingGlass className="absolute left-3 top-5 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
           </div> 
-          
-          <button 
-            className="w-64 h-10 rounded-lg bg-blue-600 px-4 text-sm font-medium text-white transition-colors hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+          <div 
+            className="flex h-10 items-center justify-center rounded-lg bg-blue-600 px-4 font-medium text-white transition-colors hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
             disabled={Input===''}
           >
-              Search Picture
-          </button>
+            <span className="hidden md:block">Search Picture</span>{' '}
+            <RxMagnifyingGlass className="md:ml-4" />
+          </div>
           
         </div>
       </form>
-    
   );
 }
 

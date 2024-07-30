@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IoIosAdd } from "react-icons/io";
 
 export function BookList({books, onDelete, onEdit}){
 
@@ -25,12 +26,27 @@ export const BookCreate = ({onCreate}) =>{
     setBookName ('');
   }
   return (
-    <div className="book-create">
-      <h3>Add a Book</h3>
+    <div>
       <form onSubmit={handleSubmit}>
-        <label>Title</label>
-        <input className="input" value={bookName} onChange={handleInputChange}/>
-        <button className="button" disabled={bookName===''}> Create </button>
+        <div className="mt-4 flex justify-between gap-2 md:mt-8">
+          <div className="relative flex flex-1 ">
+            <label htmlFor="book-title" className="sr-only">Book Title</label>
+            <input 
+              id="book-title"
+              className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+              value={bookName} 
+              onChange={handleInputChange}
+            />
+            <IoIosAdd className="absolute left-3 top-5 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+          </div>
+        
+          <div 
+            className="flex h-10 items-center justify-center rounded-lg bg-blue-600 px-4 font-medium text-white transition-colors hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+          >
+            <span className="hidden md:block">Add Book</span>{' '}
+            <IoIosAdd className="md:ml-4" />
+          </div>
+        </div>
       </form>
     </div>
   )

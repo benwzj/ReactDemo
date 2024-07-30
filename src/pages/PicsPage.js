@@ -36,7 +36,7 @@ function PicsPage() {
       Here is the example: PicsPage is parent component, and SearchBar is child.
       */}
       <div className="flex w-full items-center justify-between">
-        <h1 className={`text-4xl text-blue-700 font-serif font-bold`}>Picture Search</h1>
+        <h1 className={"text-4xl text-blue-700 font-serif font-bold"}>Picture Search</h1>
       </div>
       <SearchBar onSubmit={handleSubmit} term={term}/>
       <br/>

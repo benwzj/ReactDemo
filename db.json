@@ -19,6 +19,11 @@
       "name": "About React",
       "like": 4,
       "id": 13
+    },
+    {
+      "name": "this is new",
+      "like": 3,
+      "id": 14
     }
   ],
   "todos": [
@@ -34,7 +39,7 @@
     },
     {
       "text": "this is new one",
-      "completed": true,
+      "completed": false,
       "id": 111
     },
     {
@@ -48,17 +53,12 @@
       "id": 113
     },
     {
-      "text": "jnnnnnn",
-      "completed": false,
-      "id": 114
-    },
-    {
-      "text": "jjj",
+      "text": "update item",
       "completed": false,
       "id": 115
     },
     {
-      "text": "8888",
+      "text": "another updated item",
       "completed": false,
       "id": 116
     },
@@ -129,8 +129,8 @@
     }
   ],
   "profile": {
-    "todos_showactive": false,
-    "picture_search": "girl and sea",
+    "todos_showactive": true,
+    "picture_search": "young",
     "connection": "Connect to Json Dummy Server"
   }
 }
