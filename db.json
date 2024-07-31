@@ -54,12 +54,12 @@
     },
     {
       "text": "cvvrr",
-      "completed": true,
+      "completed": false,
       "id": 112
     },
     {
       "text": "antoher",
-      "completed": true,
+      "completed": false,
       "id": 113
     },
     {
@@ -69,12 +69,12 @@
     },
     {
       "text": "another updated item",
-      "completed": false,
+      "completed": true,
       "id": 116
     },
     {
       "text": "new one",
-      "completed": false,
+      "completed": true,
       "id": 117
     }
   ],
@@ -139,7 +139,7 @@
     }
   ],
   "profile": {
-    "todos_showactive": true,
+    "todos_showactive": false,
     "picture_search": "young",
     "connection": "Connect to Json Dummy Server"
   }

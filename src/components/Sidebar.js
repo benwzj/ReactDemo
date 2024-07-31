@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Link from './Link';
-import ReactDemoLogo from './rd-logo';
+import ReactDemoLogo from './RD-logo';
 import JsonServer from '../api/JsonServer';
 import classNames from 'classnames';
 import { LuListTodo } from "react-icons/lu";
@@ -15,33 +15,32 @@ function Sidebar() {
   const [connection, setConnection] = useState(noConnectionHint);
 
   useEffect (()=>{
+      const testConnection = async() => {
+      
+      const data = {type: 'connection'};
+      const conn = await JsonServer (data);
+      // console.log("testConnection");
+      console.log(conn);
+      if (conn) 
+        setConnection (conn.connection);    
+      else
+        setConnection (noConnectionHint);  
+    }
+
+    const repeatServerConnectionTest = async() => {
+      await testConnection();
+      setTimeout ( () => {
+        repeatServerConnectionTest();
+      }, 10000);
+    }
+
     repeatServerConnectionTest();
   }, []); 
 
-  const testConnection = async() => {
-    
-    const data = {type: 'connection'};
-    const conn = await JsonServer (data);
-    // console.log("testConnection");
-    console.log(conn);
-    if (conn) 
-      setConnection (conn.connection);    
-    else
-      setConnection (noConnectionHint);  
-  }
-
-  const repeatServerConnectionTest = async() => {
-    await testConnection();
-    setTimeout ( () => {
-      repeatServerConnectionTest();
-    }, 10000);
-  }
-
-
   const links = [
     { label: 'Todos', path: '/', icon: LuListTodo},
-    { label: 'UnsplashPictures', path: '/pics' ,icon: AiOutlinePicture},
-    { label: 'BooksManage', path: '/bookmanage', icon: GiSecretBook},
+    { label: 'Picture Search', path: '/pics' ,icon: AiOutlinePicture},
+    { label: 'Manage Books', path: '/bookmanage', icon: GiSecretBook},
     { label: 'UI Test', path: '/buttons', icon: GrTest},
   ];
 

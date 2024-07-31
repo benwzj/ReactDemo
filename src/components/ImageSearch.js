@@ -7,12 +7,12 @@ export function ImageList({ images }) {
     return <ImageItem key={image.id} image={image} />;
   });
 
-  return <div className="columns-2 gap-2 md:columns-4 lg:columns-6">{renderedImages}</div>;
+  return <div className="columns-2 gap-1 md:columns-4 lg:columns-6">{renderedImages}</div>;
 }
 
 function ImageItem({ image }) {
   return (
-    <div>
+    <div className="my-1">
       <img src={image.urls.small} alt={image.alt_description} />
     </div>
   );
