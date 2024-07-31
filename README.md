@@ -33,4 +33,36 @@ limitation: 50 API visits per minute
 - `npm install`
 - `npm start`
 
+## Icons
+
+### react-icons
+
+It is easy to use, like this:
+Install `react-icons`.
+Then:
+```js
+import { FaEarthOceania } from "react-icons/fa6";
+<FaEarthOceania className="h-12 w-20 rotate-[15deg]" />
+```
+- But the icons looks not great.
+- Find icons from [here](https://react-icons.github.io/react-icons/)
+
+### Font Awesome Icons
+
+- Firstly, create an account in Font Awesome, and login, then you can create Font Awesome Kit.
+You can choose to create JS embeded code or CSS embeded code. Both of them are downloadable.
+
+- Secondly, install the kit into your project: 
+For example, you can copy the JS embeded code and paste it in `<scripe>` tag to the `<head>` of your index.html.
+Something like this:
+```html
+<script
+  src="https://kit.fontawesome.com/228dfc1a0b.js"
+  crossorigin="anonymous"
+></script>
+```
+- Now you can use icon in you project:
+```html
+<i className="fas fa-trash"></i>
+```
 

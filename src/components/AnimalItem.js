@@ -1,4 +1,3 @@
-import '../css/AnimalItem.css';
 import { useState } from 'react';
 import bird from '../svg/bird.svg';
 import cat from '../svg/cat.svg';
@@ -24,10 +23,10 @@ function AnimalItem({ type }) {
   };
 
   return (
-    <div className="animal-show" onClick={handleClick}>
-      <img className="animal" alt="animal" src={svgMap[type]} />
+    <div className="relative p-3 m-3 border rounded-full border-cyan-300 shadow-lg shadow-cyan-300" onClick={handleClick}>
+      <img className="h-24" alt="animal" src={svgMap[type]} />
       <img
-        className="heart"
+        className="absolute bottom-2 right-2"
         alt="heart"
         src={heart}
         style={{ width: 10 + 10 * clicks + 'px' }}

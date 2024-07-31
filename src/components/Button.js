@@ -1,3 +1,7 @@
+/*
+ * The way of using tailwind CSS like this, It is just bad!
+*/
+
 import className from 'classnames';
 
 function Button({

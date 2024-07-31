@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { GoBell, GoCloud, GoDatabase } from 'react-icons/go';
-import Button from '../components/Button';
 import AnimalItem from '../components/AnimalItem';
 import Accordion from '../components/Accordion';
 import Dropdown from '../components/Dropdown';
@@ -56,60 +54,32 @@ function UITestPage() {
 
   return (
     <div>
-      <div className='test-panel'>
-        Accordion Test
+      <div className='border border-orange-500 p-4 m-2'>
+        <div>Accordion Test:</div>
         <Accordion items={items} />
       </div>
-      <div className="flex, test-panel">
-        Dropdown Test
+      <div className="flex flex-col border border-orange-500 p-4 m-2">
+        <div>Dropdown Test: </div>
         <Dropdown options={options} value={selection} onChange={handleSelect} />
       </div>
-      <div className='test-panel'>
-        Button Test, Using react icon:
+      <div className='border border-orange-500 p-4 m-2'>
+        <div>Display svg images: </div>
         <div>
-          <Button
-            secondary
-            outline
-            rounded
-            className="mb-5"
-          >
-            <GoBell />
-            Click me!!
-          </Button>
-        </div>
-        <div>
-          <Button danger outline>
-            <GoCloud />
-            Buy Now!
-          </Button>
-        </div>
-        <div>
-          <Button warning>
-            <GoDatabase />
-            See Deal!
-          </Button>
-        </div>
-        <div>
-          <Button secondary outline>
-            Hide Ads!
-          </Button>
-        </div>
-        <div>
-          <Button primary rounded onClick={handleClick}>
+          <button className="rounded-lg w-32 border-blue-500 bg-blue-500 text-white"  onClick={handleClick}>
             Add Animial
-          </Button>
+          </button>
         </div>
         <div>
-          <div className="animal-list">{renderedAnimals}</div>
+          <div className="flex flex-wrap">{renderedAnimals}</div>
         </div>
       </div>
-      <div className='test-panel'>
-        Use Font Awesome Icons: 
+      <div className='border border-orange-500 p-4 m-2'>
+        <div>Use Font Awesome Icons: </div>
         <i className="fas fa-trash" />
         <i className="fas fa-pen" />
       </div>
-      <div className='test-panel'>
-        Cooler pads Demo:
+      <div className='border border-orange-500 p-4 m-2'>
+        <div>Cooler pads Demo:</div>
         <CoolerpadDemo/>
       </div>
     </div>
