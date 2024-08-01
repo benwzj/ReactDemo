@@ -25,3 +25,10 @@
 .display-item-selected{
   background-color: greenyellow;
 }
+
+ul>li {
+  border: solid 1px plum;
+  border-radius: 30px;
+  padding: 4px;
+  background-color:lightgreen;
+}

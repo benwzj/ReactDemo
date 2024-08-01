@@ -46,13 +46,63 @@ function UITestPage() {
 
   return (
     <div>
-      <div className="border border-orange-500 p-4 m-2">
+      <div className="border border-orange-500 p-2 m-2">
         <div>Tailwind pseudo-class: </div>
-        <button
-          className='h-10 px-2 m-1 rounded-full font-bold text-white bg-violet-500 hover:bg-violet-600 active:bg-green-600 focus:outline-none focus:ring focus:ring-violet-300'  
-        >
-          Button Demo
-        </button>
+        <div className='flex flex-wrap justify-start'>
+          <div className='p-1'>
+            <button
+              className='h-10 px-2 m-1 rounded-full font-bold text-white bg-violet-500 hover:bg-violet-600 active:bg-green-600 focus:outline-none focus:ring focus:ring-violet-300'  
+            >
+              Button Demo
+            </button>
+          </div>
+          <div className="group block max-w-xs rounded-lg p-2 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500">
+            <h3 className="text-slate-900 group-hover:text-white text-sm font-semibold">
+              Styling based on parent state 
+            </h3>
+            <p className="text-slate-500 group-hover:text-white text-sm">
+              When you need to style an element based on the state of some parent element, mark the parent with the group class, and use group-* modifiers
+            </p>
+          </div>
+          <div className='block w-64 h-32 rounded-lg p-2 mx-2 bg-white ring-1  ring-slate-900/5 shadow-lg' >
+            <h3 className="mb-3 text-slate-900 group-hover:text-white text-sm font-semibold">
+              Styling based on sibling state
+            </h3>
+            <span className="m-1 block text-sm font-medium text-slate-700">Email</span>
+            <input type="email" className="peer border border-cyan-400 rounded-md px-2"/>
+            <p className="mt-2 mb-0 invisible peer-invalid:visible text-pink-600 text-sm">
+              Provide a valid email address.
+            </p>
+          </div>
+          <div className='block w-64 h-32 rounded-lg p-2 mx-2 ring-1  ring-slate-900/5 shadow-lg' >
+            <h3 className="mb-3 text-slate-900 group-hover:text-white text-sm font-semibold">
+              Styling direct children - fail
+            </h3>
+            <ul className="flex gap-1 *:rounded-full *:text-sky-300 *:border *:border-sky-500 *:bg-sky-50 *:px-2 *:py-0.5">
+              <li>Sales</li>
+              <li>Marketing</li>
+              <li>SEO</li>
+            </ul>
+          </div>
+          <div className='block w-64 h-32 rounded-lg p-2 mx-2 ring-1  ring-slate-900/5 shadow-lg' >
+            <h3 className="mb-3 text-slate-900 group-hover:text-white text-sm font-semibold">
+              Styling based on descendants 
+            </h3>
+            <label className="block mb-1 has-[:checked]:bg-indigo-50 has-[:checked]:text-indigo-900 has-[:checked]:ring-indigo-200">
+              Google Pay
+              <input type="radio" className=" checked:border-indigo-500" />
+            </label>
+            <label className="block mb-1 has-[:checked]:bg-indigo-50 has-[:checked]:text-indigo-900 has-[:checked]:ring-indigo-200">
+              Apple Pay
+              <input type="radio" className="checked:border-indigo-500" />
+            </label>
+            <label className="block mb-1 has-[:checked]:bg-indigo-50 has-[:checked]:text-indigo-900 has-[:checked]:ring-indigo-200">
+              Visa Credit
+              <input type="radio" className="checked:border-indigo-500" />
+            </label>
+          </div>
+          
+        </div>
       </div>
       <div className='border border-orange-500 p-4 m-2'>
         <div>Accordion:</div>

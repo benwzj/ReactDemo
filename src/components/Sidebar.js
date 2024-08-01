@@ -35,10 +35,10 @@ function Sidebar() {
   }, []); 
 
   const links = [
-    { label: 'Picture Search', path: '/pics' ,icon: "fas fa-image"},
+    { label: 'Picture Search', path: '/' ,icon: "fas fa-image"},
     { label: 'Manage Books', path: '/bookmanage', icon: "fas fa-book"},
-    { label: 'UI Test', path: '/buttons', icon: "fas fa-water"},
-    { label: 'Todos', path: '/', icon: "fas fa-list"}
+    { label: 'UI Test', path: '/ui-test', icon: "fas fa-water"},
+    { label: 'Todos', path: '/todos', icon: "fas fa-list"}
   ];
 
   const renderedLinks = links.map((link) => {

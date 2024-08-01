@@ -14,13 +14,13 @@ function App() {
       </div>
       <div className="flex-grow p-6 md:overflow-y-auto md:p-12">
         <Route path="/">
-          <TodosPage />
+          <PicsPage />
         </Route>
-        <Route path="/buttons">
+        <Route path="/ui-test">
           <UITestPage />
         </Route>
-        <Route path="/pics">
-          <PicsPage />
+        <Route path="/todos">
+          <TodosPage />
         </Route>
         <Route path="/bookmanage">
           <BooksManagePage />
