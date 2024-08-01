@@ -3,10 +3,7 @@ import Link from './Link';
 import ReactDemoLogo from './RD-logo';
 import JsonServer from '../api/JsonServer';
 import classNames from 'classnames';
-import { LuListTodo } from "react-icons/lu";
-import { AiOutlinePicture } from "react-icons/ai";
-import { GiSecretBook } from "react-icons/gi";
-import { GrTest } from "react-icons/gr";
+
 
 const noConnectionHint = 'No Server Connection!';
 
@@ -38,14 +35,13 @@ function Sidebar() {
   }, []); 
 
   const links = [
-    { label: 'Todos', path: '/', icon: LuListTodo},
-    { label: 'Picture Search', path: '/pics' ,icon: AiOutlinePicture},
-    { label: 'Manage Books', path: '/bookmanage', icon: GiSecretBook},
-    { label: 'UI Test', path: '/buttons', icon: GrTest},
+    { label: 'Picture Search', path: '/pics' ,icon: "fas fa-image"},
+    { label: 'Manage Books', path: '/bookmanage', icon: "fas fa-book"},
+    { label: 'UI Test', path: '/buttons', icon: "fas fa-water"},
+    { label: 'Todos', path: '/', icon: "fas fa-list"}
   ];
 
   const renderedLinks = links.map((link) => {
-    const LinkIcon = link.icon;
     return (
       <Link
         key={link.label}
@@ -53,7 +49,7 @@ function Sidebar() {
         className="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
         activeClassName="bg-sky-100 text-blue-600"
       >
-        <LinkIcon />
+        <i className={link.icon} />
         <p className="hidden md:block">{link.label}</p>
       </Link>
     );

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import j from '../coolerpads.json';
+import padsJson from '../coolerpads.json';
 
 export default function CoolerpadDemo (){
   const [makes, setMakes] = useState([]);
@@ -9,7 +9,7 @@ export default function CoolerpadDemo (){
   const [currentModel, setCurrentModel] = useState('');
 
   useEffect(()=>{
-    const coolerpad = j.cooler_pads;
+    const coolerpad = padsJson.cooler_pads;
     const makeSet = new Set();
     for (const pad of coolerpad){
       makeSet.add (pad.make)
@@ -19,7 +19,7 @@ export default function CoolerpadDemo (){
   },[]);
 
   const handleMakeSelect = (text)=>{
-    const coolerpad = j.cooler_pads;
+    const coolerpad = padsJson.cooler_pads;
     const models = [];
     for (const pad of coolerpad){
       if (pad.make === text){
@@ -33,7 +33,7 @@ export default function CoolerpadDemo (){
     setCurrentModel ('');
   }
   const handleModelSelect = (text)=>{
-    const coolerpad = j.cooler_pads;
+    const coolerpad = padsJson.cooler_pads;
     const sizes = [];
     for (const pad of coolerpad){
       if (pad.model === text){

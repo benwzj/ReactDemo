@@ -17,7 +17,7 @@ function PicsPage() {
 
   const fetchSearch = async()=>{
     const res = await JsonServer ({type: 'get-picturesearch'});
-    console.log (res);
+    //console.log (res);
     const result = await searchImages(res.picture_search);
     setTerm (res.picture_search);
     setImages (result);

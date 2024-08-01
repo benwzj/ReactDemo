@@ -30,8 +30,9 @@ For example, you want to store states for your new functionality in this App, yo
 limitation: 50 API visits per minute
 
 ## Available Scripts
-- `npm install`
-- `npm start`
+- `npm install` install dependencies
+- `npm start` start web app
+- `npm run server` start Json server
 
 ## Icons
 
@@ -49,11 +50,12 @@ import { FaEarthOceania } from "react-icons/fa6";
 
 ### Font Awesome Icons
 
-- Firstly, create an account in Font Awesome, and login, then you can create Font Awesome Kit.
-You can choose to create JS embeded code or CSS embeded code. Both of them are downloadable.
+Font Awesome Icons looks better than react-icons
 
+#### Old setup method
+- Firstly, create an account in Font Awesome, and login, then you can create Font Awesome Kit. You can choose to create JS embeded code or CSS embeded code. Both of them are downloadable.
 - Secondly, install the kit into your project: 
-For example, you can copy the JS embeded code and paste it in `<scripe>` tag to the `<head>` of your index.html.
+For example, you can copy the JS embeded code and paste it in `<scripe>` tag to the `<head>` of your `index.html`.
 Something like this:
 ```html
 <script
@@ -65,4 +67,24 @@ Something like this:
 ```html
 <i className="fas fa-trash"></i>
 ```
+
+#### use `react-fontawesome` component 
+```
+npm i --save @fortawesome/fontawesome-svg-core
+npm i --save @awesome.me/kit-KIT_CODE
+npm i --save @fortawesome/react-fontawesome@latest
+```
+Then
+```js
+import ReactDOM from 'react-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+
+const element = <FontAwesomeIcon icon={faEnvelope} />
+ReactDOM.render(element, document.body)
+```
+
+## Dropdown component
+
+Dropdown can substitute select element. You can easily change the outlook to fit your expectation.
 

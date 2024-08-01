@@ -1,8 +1,12 @@
 import { useState } from 'react';
-import AnimalItem from '../components/AnimalItem';
+import AnimalDemo from '../components/AnimalDemo';
 import Accordion from '../components/Accordion';
 import Dropdown from '../components/Dropdown';
 import CoolerpadDemo from '../components/CoolerpadDemo';
+import { LuListTodo } from "react-icons/lu";
+import { AiOutlinePicture } from "react-icons/ai";
+import { GiSecretBook } from "react-icons/gi";
+import { GrTest } from "react-icons/gr";
 import '../css/UITestPage.css';
 
 const items = [
@@ -30,23 +34,11 @@ const options = [
   { label: 'Green', value: 'green' },
   { label: 'Blue', value: 'blue' },
 ];
-function getRandomAnimal() {
-  const animals = ['bird', 'cat', 'cow', 'dog', 'gator', 'horse'];
-  return animals[Math.floor(Math.random() * animals.length)];
-}
 
 
 function UITestPage() {
   
   const [selection, setSelection] = useState(null);
-  const [animals, setAnimals] = useState ([])
-  const handleClick = () => {
-    setAnimals ([...animals, getRandomAnimal()])
-  };
-
-  const renderedAnimals = animals.map((animal, index) => {
-    return <AnimalItem key={index} type={animal} />;
-  });
 
   const handleSelect = (option) => {
     setSelection(option);
@@ -54,38 +46,50 @@ function UITestPage() {
 
   return (
     <div>
+      <div className="border border-orange-500 p-4 m-2">
+        <div>Tailwind pseudo-class: </div>
+        <button
+          className='h-10 px-2 m-1 rounded-full font-bold text-white bg-violet-500 hover:bg-violet-600 active:bg-green-600 focus:outline-none focus:ring focus:ring-violet-300'  
+        >
+          Button Demo
+        </button>
+      </div>
       <div className='border border-orange-500 p-4 m-2'>
-        <div>Accordion Test:</div>
+        <div>Accordion:</div>
         <Accordion items={items} />
       </div>
       <div className="flex flex-col border border-orange-500 p-4 m-2">
-        <div>Dropdown Test: </div>
+        <div>Dropdown: </div>
         <Dropdown options={options} value={selection} onChange={handleSelect} />
       </div>
+
       <div className='border border-orange-500 p-4 m-2'>
-        <div>Display svg images: </div>
-        <div>
-          <button className="rounded-lg w-32 border-blue-500 bg-blue-500 text-white"  onClick={handleClick}>
-            Add Animial
-          </button>
-        </div>
-        <div>
-          <div className="flex flex-wrap">{renderedAnimals}</div>
+        <div>Font Awesome Icons: </div>
+        <div className='flex gap-2'>
+          <i className="fas fa-trash" />
+          <i className="fas fa-pen" />
+          <i className="fas fa-fire" />
+          <i className="fas fa-home" />
         </div>
       </div>
       <div className='border border-orange-500 p-4 m-2'>
-        <div>Use Font Awesome Icons: </div>
-        <i className="fas fa-trash" />
-        <i className="fas fa-pen" />
+        <div>React Icons: </div>
+        <div className='flex gap-2'>
+          <LuListTodo />
+          <AiOutlinePicture />
+          <GiSecretBook />
+          <GrTest />
+        </div>
+      </div>
+      <div className='border border-orange-500 p-4 m-2'>
+        <AnimalDemo/>
       </div>
       <div className='border border-orange-500 p-4 m-2'>
         <div>Cooler pads Demo:</div>
         <CoolerpadDemo/>
       </div>
     </div>
-
   );
 }
-
 
 export default UITestPage;

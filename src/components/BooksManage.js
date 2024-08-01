@@ -42,13 +42,13 @@ export const BookCreate = ({onCreate}) =>{
             />
             <MdOutlineEdit className="absolute left-3 top-5 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
           </div>
-        
-          <div 
-            className="flex h-10 items-center justify-center rounded-lg bg-blue-600 px-4 font-medium text-white transition-colors hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+          <button 
+            className="flex h-10 items-center justify-center rounded-lg bg-blue-600 px-4 font-medium text-white transition-colors hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 disabled:bg-gray-400"
+            disabled={bookName===''}
           >
             <span className="hidden md:block">Add Book</span>{' '}
             <IoIosAdd className="md:ml-4" />
-          </div>
+          </button>
         </div>
       </form>
     </div>
@@ -86,8 +86,12 @@ const BookItem = ({book, onDelete, onEdit}) =>{
   const displayingPanel = editStatus ? bookEditPanel : bookInfoPanel;
 
   return (
-    <div className="relative border border-gray-300 rounded-md px-3 w-56 m-2 pt-8">
-      <img alt="books" src={`https://picsum.photos/seed/${book.id}/300/200`} />
+    <div className="group relative border border-gray-300 rounded-md px-3 w-56 m-2 pt-8">
+      <img 
+        className="transition duration-300 ease-in-out group-hover:scale-105"
+        alt="books" 
+        src={`https://picsum.photos/seed/${book.id}/300/200`} 
+      />
       <div>{displayingPanel}</div>
       <div className="absolute pl-4 right-1 top-1 flex gap-1">
         <div 
@@ -149,7 +153,8 @@ const BookEdit = ({book, onEdit, onCancel}) =>{
           </button> 
           <button 
             type="button"
-            className="h-10 w-20 rounded-lg bg-blue-600 px-2 text-sm font-medium text-white transition-colors hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600" 
+            className="h-10 w-20 rounded-lg bg-blue-600 px-2 text-sm font-medium text-white transition-colors hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 disabled:bg-gray-400" 
+            disabled={bookName===''}
             onClick={handleCancel}
           > 
             Cancel 
