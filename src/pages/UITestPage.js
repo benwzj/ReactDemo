@@ -78,7 +78,7 @@ function UITestPage() {
             <h3 className="mb-3 text-slate-900 group-hover:text-white text-sm font-semibold">
               Styling direct children - fail
             </h3>
-            <ul className="flex gap-1 *:rounded-full *:text-sky-300 *:border *:border-sky-500 *:bg-sky-50 *:px-2 *:py-0.5">
+            <ul className="direct-child flex gap-1 *:rounded-full *:text-sky-300 *:border *:border-sky-500 *:bg-sky-50 *:px-2 *:py-0.5">
               <li>Sales</li>
               <li>Marketing</li>
               <li>SEO</li>
