@@ -1,10 +1,13 @@
 import axios from 'axios';
 
+const key = process.env.REACT_APP_UNSPLASH_API_TOKEN;
+
 // limitation: 50 API visits per minute
 const searchImages = async (term) => {
+  console.log("Key is "+key)
   const response = await axios.get('https://api.unsplash.com/search/photos', {
     headers: {
-      Authorization: 'Client-ID 5HCNkbjn-xTk156hMrr0Xikmfh0nbObHJMaxxX1mhZA',
+      Authorization: key,
     },
     params: {
       query: term,

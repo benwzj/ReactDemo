@@ -51,20 +51,20 @@ function UITestPage() {
         <div className='flex flex-wrap justify-start'>
           <div className='p-1'>
             <button
-              className='h-10 px-2 m-1 rounded-full font-bold text-white bg-violet-500 hover:bg-violet-600 active:bg-green-600 focus:outline-none focus:ring focus:ring-violet-300'  
+              className='h-10 px-1 m-1 rounded-full font-bold text-white bg-violet-500 hover:bg-violet-600 active:bg-green-600 focus:outline-none focus:ring focus:ring-violet-300'  
             >
               Button Demo
             </button>
           </div>
-          <div className="group block max-w-xs rounded-lg p-2 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500">
+          <div className="group block w-44 rounded-lg p-2 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500">
             <h3 className="text-slate-900 group-hover:text-white text-sm font-semibold">
               Styling based on parent state 
             </h3>
             <p className="text-slate-500 group-hover:text-white text-sm">
-              When you need to style an element based on the state of some parent element, mark the parent with the group class, and use group-* modifiers
+              Mark the parent with the group class, and use group-* modifiers
             </p>
           </div>
-          <div className='block w-64 h-32 rounded-lg p-2 mx-2 bg-white ring-1  ring-slate-900/5 shadow-lg' >
+          <div className='block w-56 h-32 rounded-lg p-2 mx-1 bg-white ring-1  ring-slate-900/5 shadow-lg' >
             <h3 className="mb-3 text-slate-900 group-hover:text-white text-sm font-semibold">
               Styling based on sibling state
             </h3>
@@ -74,7 +74,7 @@ function UITestPage() {
               Provide a valid email address.
             </p>
           </div>
-          <div className='block w-64 h-32 rounded-lg p-2 mx-2 ring-1  ring-slate-900/5 shadow-lg' >
+          <div className='block w-56   h-32 rounded-lg p-2 mx-1 ring-1  ring-slate-900/5 shadow-lg' >
             <h3 className="mb-3 text-slate-900 group-hover:text-white text-sm font-semibold">
               Styling direct children - fail
             </h3>
@@ -84,7 +84,7 @@ function UITestPage() {
               <li>SEO</li>
             </ul>
           </div>
-          <div className='block w-64 h-32 rounded-lg p-2 mx-2 ring-1  ring-slate-900/5 shadow-lg' >
+          <div className='block w-64 h-32 rounded-lg p-2 mx-1 ring-1  ring-slate-900/5 shadow-lg' >
             <h3 className="mb-3 text-slate-900 group-hover:text-white text-sm font-semibold">
               Styling based on descendants 
             </h3>

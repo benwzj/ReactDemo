@@ -1,12 +1,13 @@
 import axios from 'axios';
 
+const jsonServerUrl = process.env.REACT_APP_JSONSERVER_URL;
 const JsonServer = async(data) => {
 
   switch (data.type){
     case 'connection':
     {
       try {
-        const response = await fetch('http://localhost:3001/profile');
+        const response = await fetch(jsonServerUrl+'/profile');
         if (!response.ok) {
           throw new Error(`Response status: ${response.status}`);
         }
@@ -20,7 +21,7 @@ const JsonServer = async(data) => {
     }
     case 'create-book':
     {
-      const response = await axios.post('http://localhost:3001/books', {
+      const response = await axios.post(jsonServerUrl+'/books', {
         name: data.name, like: 0
       });
       return response.data;
@@ -28,67 +29,67 @@ const JsonServer = async(data) => {
 
     case 'get-books':
     {
-      const response = await axios.get('http://localhost:3001/books');
+      const response = await axios.get(jsonServerUrl+'/books');
       return response.data;
     }
     case 'delete-book':
-      await axios.delete(`http://localhost:3001/books/${data.id}`);
+      await axios.delete(`${jsonServerUrl}/books/${data.id}`);
       break;
 
     case 'edit-book':
     {
-      const response = await axios.put(`http://localhost:3001/books/${data.id}`, {
+      const response = await axios.put(`${jsonServerUrl}/books/${data.id}`, {
         name: data.name, like: data.like
       });
       return response.data;
     }
     case 'edit-picturesearch':
     { 
-      const response = await axios.get(`http://localhost:3001/profile`);
+      const response = await axios.get(`${jsonServerUrl}/profile`);
       const newData = {...response.data, 'picture_search': data.picture_search};
-      await axios.put('http://localhost:3001/profile', newData);
+      await axios.put(`${jsonServerUrl}/profile`, newData);
       break;
     }
 
     case 'get-picturesearch':
     {
-      const response = await axios.get('http://localhost:3001/profile');
+      const response = await axios.get(`${jsonServerUrl}/profile`);
       return response.data;
     }
 
     case 'create-todo':
     {
-      const response = await axios.post('http://localhost:3001/todos', {
+      const response = await axios.post(jsonServerUrl+'/todos', {
         text:data.text, completed: data.completed
       });
       return response.data;
     }
     case 'get-todos':
     {
-      const response = await axios.get('http://localhost:3001/todos');
+      const response = await axios.get(jsonServerUrl+'/todos');
       return response.data;
     }
     case 'edit-todo':
     {
-      const response = await axios.put(`http://localhost:3001/todos/${data.id}`, {
+      const response = await axios.put(`${jsonServerUrl}/todos/${data.id}`, {
         text: data.text, completed: data.completed
       });
       return response.data;
     }
     case 'delete-todo':
-      await axios.delete(`http://localhost:3001/todos/${data.id}`);
+      await axios.delete(`${jsonServerUrl}/todos/${data.id}`);
       break; 
 
     case 'get-todos-showactive':
     {  
-      const response = await axios.get(`http://localhost:3001/profile`);
+      const response = await axios.get(`${jsonServerUrl}/profile`);
       return response.data;
     }
     case 'edit-todos-showactive':
     {  
-      const response = await axios.get(`http://localhost:3001/profile`);
+      const response = await axios.get(`${jsonServerUrl}/profile`);
       const newData = {...response.data, 'todos_showactive': data.showactive};
-      await axios.put('http://localhost:3001/profile', newData);
+      await axios.put(jsonServerUrl+'/profile', newData);
       break;
     }
     default:

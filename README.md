@@ -5,29 +5,30 @@ ReactDemo is ReactJS exercise app to run through many React Feature, like neviga
 - This app is using `npx create-react-app ReactDemo` to create!
 - This app need to connect to JSON sever for managing data before it works properly. 
 - Start JSON Sever by: `npm run server` under `this app directionary` in terminor.
-- ReactDemo doesn't use react-router-dom to handld router. It implement it's one.
+- ReactDemo doesn't use "react-router-dom" to handld router. It implement it's one.
 
-### JSONServer
+## JSONServer
 [Morn info](https://www.npmjs.com/package/json-server)
 
 This is a simple remote JSON database interface server. it is easy to setup, connect, implement data management.
-JSONServer manage the item ID for you. So you don't need to manage ID yourself, and just use the ID which returned by JSONServer.
+JSONServer manage the **item ID** for you. So you don't need to manage ID yourself, and just use the ID which returned by JSONServer.
 
-#### Start Json Server: 
+### Start Json Server: 
 under this app folder: run this command in terminal: `npm run server`
 
-#### Setup
+### Setup
 - You can use `api.http` to test API.
 - Edit `data.type` in `JsonServer.js`.
 For example, you want to store states for your new functionality in this App, you can add a new `data.type`. And add cor-responsed resource in `db.json`.
 
-#### Files for JSONServer:
+### Files for JSONServer:
 - `db.json` is the database file for JSONServer. It is plain text file.
 - `api.http` is the JSONServer test file. it is support by a VSCode plugin.
 
-### Using Unsplash photo API
+## Using Unsplash photo API
 
-limitation: 50 API visits per minute
+- More information at Unsplash website [doc](https://unsplash.com/documentation)
+- limitation: 50 API visits per minute
 
 ## Available Scripts
 - `npm install` install dependencies
